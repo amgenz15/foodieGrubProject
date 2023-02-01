@@ -8,3 +8,8 @@ Well do I have a solution for you! This website allows users to search for all k
 snacks to drinks. Not sure what you are looking for? No problem you can search through all of our categories. This website 
 also allows users to sign up to save recipies to create their own personal recipie book, along with adding their own favorite 
 recipies to the website. 
+
+
+## Time Log
+
+####[TimeLog](TimeLog.md)
