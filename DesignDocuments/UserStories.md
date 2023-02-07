@@ -40,6 +40,10 @@ As a user I want to find out more about the website and what I can gain by signi
 
 As a registered user I want to be able to add my own personal recipes, so others can make my recipes and enjoy them.* 
 
+### Nutrition Information
+
+As any user I want to be able to see the nutrition information for each recipe.
+
 ### Admin Edit Recipe
 
 As an admin user I want to be able to edit any recipe.
@@ -55,6 +59,10 @@ As a registered user or admin I want to be able to reset my password if I forget
 ### Edit user profile
 
 As a registered user or admin I want to be able to edit my profile.
+
+### Rate and Review form
+
+As a registered user I want to be able to rate and review recipes.
 
 *Denotes MVP
 
