@@ -12,6 +12,6 @@ recipes to the website.
 
 ## Time Log
 
-####[TimeLog](TimeLog.md)
-####[UserStories](DesignDocuments/UserStories.md)
-####[ScreenDesign](DesignDocuments/Screens.md)
+* [TimeLog](TimeLog.md)
+* [UserStories](DesignDocuments/UserStories.md)
+* [ScreenDesign](DesignDocuments/Screens.md)
