@@ -1,31 +1,29 @@
 # Screen Design
 
-### 
+### Home Page 
 
-![](wireframes/)
+![Home Page](wireframes/aboutUs.png)
 
-### 
+### Browse Page
 
-![](wireframes/)
+![Browse Recipes](wireframes/browse.png)
 
-### 
+### About Us page 
 
-![](wireframes/)
+![About Us ](wireframes/aboutUs.png)
 
-### 
+### Recipe Specs
 
-![](wireframes/)
+![Recipe Specs](wireframes/recipeSpecs.png)
 
-### 
+### Sign In
 
-![](wireframes/)
+![Sign In](wireframes/signin.png)
 
-### 
+### Sign Up
 
-![](wireframes/)
+![Sign Up](wireframes/signup.png)
 
-### 
 
-![](wireframes/)
 
 
