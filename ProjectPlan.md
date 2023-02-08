@@ -7,9 +7,9 @@
 - [x] Complete Problem Statement
 - [ ] Determine possible Web Services or APIs to use
 - [X] Add to time log
-- [ ] Write project plan
+- [X] Write project plan
 - [X] Create Wireframes
-- [ ] Triple-check for Checkpoint 1
+- [X] Triple-check for Checkpoint 1
 - [ ] Crete a database 
 - [ ] Make a table for users
 - [ ] user dao to add user to db (java class)

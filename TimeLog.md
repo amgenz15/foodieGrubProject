@@ -22,7 +22,7 @@
 | 2/4  | Finished exercise 3                                                                              | 1     |       |
 | 2/6  | Added all of Project Part 1 Files and finished user stories. Converted environment to VM.        | 5     |       |
 | 2/7  | Created wireframes and touched up problem statement.                                             | 1.5   |       |
-| 2/8  |                                                                                                  |       |       |              
+| 2/8  | Finished project plan and reviewed all pieces for checkpoint 1                                   | 2     |       |              
 |
 |
 |
