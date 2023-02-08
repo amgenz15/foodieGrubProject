@@ -56,13 +56,17 @@ As a registered user I want to be able to edit my own recipes.
 
 As a registered user or admin I want to be able to reset my password if I forget it.
 
+### Rate and Review form
+
+As a registered user I want to be able to rate and review recipes.
+
 ### Edit user profile
 
 As a registered user or admin I want to be able to edit my profile.
 
-### Rate and Review form
+### Delete user profile
 
-As a registered user I want to be able to rate and review recipes.
+As a registered user or admin I want to be able to delete my profile.
 
 *Denotes MVP
 
