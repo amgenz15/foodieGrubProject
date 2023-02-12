@@ -16,42 +16,21 @@ import java.util.List;
 public class UserDao {
     private final Logger logger = LogManager.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
-    /** Return a list of all users
+    /** Returns all users from the database
      *
      * @return All users
      */
     public List<User> getAll() {
-
         Session session = sessionFactory.openSession();
-
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery( User.class );
-        Root<User> root = query.from( User.class );
-        List<User> users = session.createQuery( query ).getResultList();
-        session.close();
-
-        return users;
-    }
-
-    /**
-     * Gets all users.
-     *
-     * @return the all users
-     */
-    public List<User> getUsersByLastName(String lastName) {
-        Session session = sessionFactory.openSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
-        Expression<String> propertiesPath = root.get("lastName");
-        query.where(builder.like(propertiesPath, "%" + lastName + "%"));
         List<User> users = session.createQuery( query ).getResultList();
         session.close();
         return users;
     }
 
     /**
-     * Gets a user by id
+     * Returns a user that was searched for by id.
      * @return a user
      */
     public User getById(int id) {
@@ -61,8 +40,8 @@ public class UserDao {
         return user;
     }
 
-    /**
-     * update user
+    /** Updates user in the database
+     *
      * @param user  User to be inserted or updated
      */
     public void saveOrUpdate(User user) {
@@ -72,7 +51,7 @@ public class UserDao {
     }
 
     /**
-     * update user
+     * Inserts a new user into the database
      * @param user  User to be inserted or updated
      */
     public int insert(User user) {
@@ -86,7 +65,7 @@ public class UserDao {
     }
 
     /**
-     * Delete a user
+     * Deletes a user from the database
      * @param user User to be deleted
      */
     public void delete(User user) {
@@ -103,15 +82,11 @@ public class UserDao {
      */
     public List<User> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
-
-        logger.debug("Searching for user with " + propertyName + " = " + value);
-
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery( User.class );
         Root<User> root = query.from( User.class );
         query.select(root).where(builder.equal(root.get(propertyName), value));
         List<User> users = session.createQuery(query).getResultList();
-
         session.close();
         return users;
     }
@@ -122,16 +97,11 @@ public class UserDao {
      */
     public List<User> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
-
-        logger.debug("Searching for user with {} = {}",  propertyName, value);
-
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<User> query = builder.createQuery( User.class );
         Root<User> root = query.from( User.class );
         Expression<String> propertyPath = root.get(propertyName);
-
         query.where(builder.like(propertyPath, "%" + value + "%"));
-
         List<User> users = session.createQuery( query ).getResultList();
         session.close();
         return users;
