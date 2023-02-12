@@ -1,4 +1,4 @@
-package com.amgenz.persistence;
+package com.amgenz.util;
 
 import java.io.IOException;
 import java.util.Properties;
