@@ -1,7 +1,7 @@
-package edu.matc.persistence;
+package com.amgenz.persistence;
 
 
-import edu.matc.entity.User;
+import com.amgenz.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

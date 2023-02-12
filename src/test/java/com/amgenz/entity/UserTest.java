@@ -1,4 +1,4 @@
-package edu.matc.entity;
+package com.amgenz.entity;
 
 import junit.framework.TestCase;
 

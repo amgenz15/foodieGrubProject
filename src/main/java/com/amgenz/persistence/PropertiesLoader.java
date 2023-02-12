@@ -1,4 +1,4 @@
-package edu.matc.persistence;
+package com.amgenz.persistence;
 
 import java.io.IOException;
 import java.util.Properties;
