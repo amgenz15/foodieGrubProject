@@ -16,28 +16,18 @@ import java.util.Properties;
 /**
  * Provides access to the database
  */
-public class Database {
+public class Database implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger(this.getClass());
     //create an object of the class database
     private static Database instance = new Database();
 
+    private PropertiesLoader propertiesLoader;
     private Properties properties;
     private Connection connection;
 
     //private constructor prevents instantiating this class anywhere else
     private Database() {
-        loadProperties();
-    }
-
-    private void loadProperties() {
-        properties = new Properties();
-        try {
-            properties.load(this.getClass().getResourceAsStream("/database.properties"));
-        } catch (IOException ioe) {
-            logger.error("Database.loadProperties()... Cannot load the properties file.", ioe);
-        } catch (Exception e) {
-            logger.error("Database.loadProperties()..." + e);
-        }
+        properties = propertiesLoader.loadProperties("/database.properties");
     }
 
     //get the only Database object available

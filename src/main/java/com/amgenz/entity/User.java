@@ -30,13 +30,11 @@ public class User {
     /**
      * Instantiates a new User.
      *
-     * @param id        the id
      * @param firstName the first name
      * @param lastName  the last name
      * @param userName  the user name
      */
-    public User(int id, String firstName, String lastName, String userName) {
-        this.id = id;
+    public User(String firstName, String lastName, String userName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;

@@ -4,8 +4,6 @@ package com.amgenz.persistence;
 import com.amgenz.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,28 +20,19 @@ class UserDaoTest {
     @BeforeEach
     void setUp() {
 
-        edu.matc.test.util.Database database = edu.matc.test.util.Database.getInstance();
+        com.amgenz.util.Database database = com.amgenz.util.Database.getInstance();
         database.runSQL("cleandb.sql");
 
         dao = new UserDao();
     }
 
     /**
-     * Verifies gets all users success.
+     * Verifies gets all user's success.
      */
     @Test
     void getAllUsersSuccess() {
         List<User> users = dao.getAll();
-        assertEquals(6, users.size());
-    }
-
-    /**
-     * Verifies gets users by last name success.
-     */
-    @Test
-    void getUsersByLastNameSuccess() {
-        List<User> users = dao.getUsersByLastName("c");
-        assertEquals(3, users.size());
+        assertEquals(10, users.size());
     }
 
     /**
@@ -51,9 +40,9 @@ class UserDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        User retrieveUser = dao.getById(3);
+        User retrieveUser = dao.getById(5);
         assertNotNull(retrieveUser);
-        assertEquals("Barney", retrieveUser.getFirstName());
+        assertEquals("Ashley", retrieveUser.getFirstName());
     }
     /**
      * Verify successful insert of a user
@@ -61,14 +50,11 @@ class UserDaoTest {
     @Test
     void insertSuccess() {
 
-        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1968-01-01"));
+        User newUser = new User("Steve", "Flower", "stflow");
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = dao.getById(id);
-        assertEquals("Fred", insertedUser.getFirstName());
-        // Could continue comparing all values, but
-        // it may make sense to use .equals()
-        // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        assertEquals("Steve", insertedUser.getFirstName());
     }
 
     /**
@@ -80,14 +66,22 @@ class UserDaoTest {
         assertNull(dao.getById(3));
     }
 
+    @Test
+    void saveOrUpdateSuccess() {
+        User updateUser = dao.getById(1);
+        updateUser.setUserName("halouis");
+        dao.saveOrUpdate(updateUser);
+        assertEquals("halouis", updateUser.getUserName());
+    }
+
     /**
      * Verify successful get by property (equal match)
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "Curry");
+        List<User> users = dao.getByPropertyEqual("lastName", "Smith");
         assertEquals(1, users.size());
-        assertEquals(3, users.get(0).getId());
+        assertEquals(10, users.get(0).getId());
     }
 
     /**
@@ -95,7 +89,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "c");
+        List<User> users = dao.getByPropertyLike("lastName", "w");
         assertEquals(3, users.size());
     }
 }
