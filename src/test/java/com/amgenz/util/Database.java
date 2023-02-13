@@ -21,15 +21,24 @@ public class Database implements PropertiesLoader {
     //create an object of the class database
     private static Database instance = new Database();
 
-    private PropertiesLoader propertiesLoader;
     private Properties properties;
     private Connection connection;
 
     //private constructor prevents instantiating this class anywhere else
     private Database() {
-        properties = propertiesLoader.loadProperties("/database.properties");
+        loadProperties();
     }
 
+    private void loadProperties() {
+        properties = new Properties();
+        try {
+            properties.load(this.getClass().getResourceAsStream("/database.properties"));
+        } catch (IOException ioe) {
+            logger.error("Database.loadProperties()... Cannot load the properties file.", ioe);
+        } catch (Exception e) {
+            logger.error("Database.loadProperties()..." + e);
+        }
+    }
     //get the only Database object available
     public static Database getInstance() {
         return instance;
