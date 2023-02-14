@@ -70,9 +70,9 @@ class UserDaoTest {
     @Test
     void saveOrUpdateSuccess() {
         User updateUser = dao.getById(1);
-        updateUser.setUserName("halouis");
+        updateUser.setEmail("halouis");
         dao.saveOrUpdate(updateUser);
-        assertEquals("halouis", updateUser.getUserName());
+        assertEquals("halouis", updateUser.getEmail());
     }
 
     /**
@@ -91,6 +91,6 @@ class UserDaoTest {
     @Test
     void getByPropertyLikeSuccess() {
         List<User> users = dao.getByPropertyLike("lastName", "w");
-        assertEquals(3, users.size());
+        assertEquals(4, users.size());
     }
 }

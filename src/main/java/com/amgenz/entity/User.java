@@ -17,8 +17,8 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "email")
+    private String email;
 
 
     /**
@@ -32,12 +32,12 @@ public class User {
      *
      * @param firstName the first name
      * @param lastName  the last name
-     * @param userName  the user name
+     * @param email  the user email
      */
-    public User(String firstName, String lastName, String userName) {
+    public User(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = userName;
+        this.email = email;
     }
 
     /**
@@ -95,20 +95,30 @@ public class User {
     }
 
     /**
-     * Gets user name.
+     * Gets user email.
      *
-     * @return the user name
+     * @return the user email
      */
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * Sets user name.
+     * Sets user email.
      *
-     * @param userName the user name
+     * @param email the user email
      */
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + email + '\'' +
+                '}';
     }
 }
