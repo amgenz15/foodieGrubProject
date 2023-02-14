@@ -1,4 +1,4 @@
-package com.amgenz.util;
+package com.amgenz.test.util;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,7 +16,7 @@ import java.util.Properties;
 /**
  * Provides access to the database
  */
-public class Database implements PropertiesLoader {
+public class Database {
     private final Logger logger = LogManager.getLogger(this.getClass());
     //create an object of the class database
     private static Database instance = new Database();
@@ -39,6 +39,7 @@ public class Database implements PropertiesLoader {
             logger.error("Database.loadProperties()..." + e);
         }
     }
+
     //get the only Database object available
     public static Database getInstance() {
         return instance;

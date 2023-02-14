@@ -2,6 +2,7 @@ package com.amgenz.persistence;
 
 
 import com.amgenz.entity.User;
+import com.amgenz.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -20,7 +21,7 @@ class UserDaoTest {
     @BeforeEach
     void setUp() {
 
-        com.amgenz.util.Database database = com.amgenz.util.Database.getInstance();
+        Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
 
         dao = new UserDao();
