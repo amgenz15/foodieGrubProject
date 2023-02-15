@@ -23,8 +23,8 @@
 | 2/6  | Added all of Project Part 1 Files and finished user stories. Converted environment to VM.        | 5     |       |
 | 2/7  | Created wireframes and touched up problem statement.                                             | 1.5   |       |
 | 2/8  | Finished project plan and reviewed all pieces for checkpoint 1                                   | 2     |       |              
-|
-|
-|
-|
-|
+| 2/9  | Finished DAO acivity and started Hibernate activity                                              | 1     |       |
+|2/10  | Finished Hibernate Activity and Finished activity 1                                              | 1.5   |       |
+|2/13  | Finished exercise 4                                                                              | 2.5   |       |
+| 2/14 | Turned in exercise 4 and started week 4 self eval                                                | 1     |       |
+| 2/15 | Turned in seld eval and started Hibernate one-to-many demo                                       | 2     |       |
