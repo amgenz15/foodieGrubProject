@@ -10,9 +10,9 @@
 - [X] Write project plan
 - [X] Create Wireframes
 - [X] Triple-check for Checkpoint 1
-- [ ] Crete a database 
-- [ ] Make a table for users
-- [ ] user dao to add user to db (java class)
+- [X] Crete a database 
+- [X] Make a table for users
+- [X] user dao to add user to db (java class)
 
 ### Week 4
 #### This week's focus is the User Sign Up Story
