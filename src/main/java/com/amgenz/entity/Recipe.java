@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -245,5 +246,18 @@ public class Recipe {
                 ", totalTimeInMin=" + totalTimeInMin +
                 ", type='" + type + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Recipe recipe = (Recipe) o;
+        return id == recipe.id && calories == recipe.calories && protein == recipe.protein && carbohydrates == recipe.carbohydrates && fat == recipe.fat && totalTimeInMin == recipe.totalTimeInMin && Objects.equals(recipeName, recipe.recipeName) && Objects.equals(user, recipe.user) && Objects.equals(type, recipe.type) && Objects.equals(instructions, recipe.instructions) && Objects.equals(ingredients, recipe.ingredients);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, recipeName, user, calories, protein, carbohydrates, fat, totalTimeInMin, type, instructions, ingredients);
     }
 }

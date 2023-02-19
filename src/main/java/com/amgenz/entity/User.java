@@ -2,6 +2,9 @@ package com.amgenz.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type User.
@@ -19,6 +22,9 @@ public class User {
     private String lastName;
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Recipe> recipes = new HashSet<>();
 
 
     /**
@@ -120,5 +126,18 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + email + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(recipes, user.recipes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email, recipes);
     }
 }
