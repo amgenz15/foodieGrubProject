@@ -19,8 +19,134 @@ public class RecipeIngredient {
     @ManyToOne
     private Recipe recipe;
 
-    @Column(name = "ingredient_1")
-    private String ingredient1;
+    @Column(name = "ingredient")
+    private String ingredient;
 
+    @Column(name = "ingredient_amount")
+    private int ingredientAmount;
 
+    @Column(name = "ingredient_amount_measurement")
+    private String ingredientAmountMeasurement;
+
+    /**
+     * Instantiates a new Recipe ingredient.
+     */
+    public RecipeIngredient() {
+    }
+
+    /**
+     * Instantiates a new Recipe ingredient.
+     *
+     * @param recipe                      the recipe
+     * @param ingredient                  the ingredient
+     * @param ingredientAmount            the ingredient amount
+     * @param ingredientAmountMeasurement the ingredient amount measurement
+     */
+    public RecipeIngredient(Recipe recipe, String ingredient, int ingredientAmount, String ingredientAmountMeasurement) {
+        this.recipe = recipe;
+        this.ingredient = ingredient;
+        this.ingredientAmount = ingredientAmount;
+        this.ingredientAmountMeasurement = ingredientAmountMeasurement;
+    }
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * Gets recipe.
+     *
+     * @return the recipe
+     */
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    /**
+     * Sets recipe.
+     *
+     * @param recipe the recipe
+     */
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
+    /**
+     * Gets ingredient.
+     *
+     * @return the ingredient
+     */
+    public String getIngredient() {
+        return ingredient;
+    }
+
+    /**
+     * Sets ingredient.
+     *
+     * @param ingredient the ingredient
+     */
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    /**
+     * Gets ingredient amount.
+     *
+     * @return the ingredient amount
+     */
+    public int getIngredientAmount() {
+        return ingredientAmount;
+    }
+
+    /**
+     * Sets ingredient amount.
+     *
+     * @param ingredientAmount the ingredient amount
+     */
+    public void setIngredientAmount(int ingredientAmount) {
+        this.ingredientAmount = ingredientAmount;
+    }
+
+    /**
+     * Gets ingredient amount measurement.
+     *
+     * @return the ingredient amount measurement
+     */
+    public String getIngredientAmountMeasurement() {
+        return ingredientAmountMeasurement;
+    }
+
+    /**
+     * Sets ingredient amount measurement.
+     *
+     * @param ingredientAmountMeasurement the ingredient amount measurement
+     */
+    public void setIngredientAmountMeasurement(String ingredientAmountMeasurement) {
+        this.ingredientAmountMeasurement = ingredientAmountMeasurement;
+    }
+
+    @Override
+    public String toString() {
+        return "RecipeIngredient{" +
+                "id=" + id +
+                ", recipe=" + recipe +
+                ", ingredient='" + ingredient + '\'' +
+                ", ingredientAmount=" + ingredientAmount +
+                ", ingredientAmountMeasurement='" + ingredientAmountMeasurement + '\'' +
+                '}';
+    }
 }
