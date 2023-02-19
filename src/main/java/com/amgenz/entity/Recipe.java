@@ -35,10 +35,10 @@ public class Recipe {
 
     private String type;
 
-    @OneToMany(mappedBy = "recipes", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<RecipeInstruction> instructions = new HashSet<>();
 
-    @OneToMany(mappedBy = "recipes", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<RecipeIngredient> ingredients = new HashSet<>();
 
     /**

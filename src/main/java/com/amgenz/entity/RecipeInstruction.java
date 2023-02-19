@@ -3,6 +3,7 @@ package com.amgenz.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * The type Recipe instructions.
@@ -122,5 +123,18 @@ public class RecipeInstruction {
                 ", instruction='" + instruction + '\'' +
                 ", instructionOrder=" + instructionOrder +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RecipeInstruction that = (RecipeInstruction) o;
+        return id == that.id && instructionOrder == that.instructionOrder && Objects.equals(recipe, that.recipe) && Objects.equals(instruction, that.instruction);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, recipe, instruction, instructionOrder);
     }
 }

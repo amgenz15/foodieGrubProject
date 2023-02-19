@@ -3,6 +3,7 @@ package com.amgenz.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * The type Recipe ingredients.
@@ -148,5 +149,18 @@ public class RecipeIngredient {
                 ", ingredientAmount=" + ingredientAmount +
                 ", ingredientAmountMeasurement='" + ingredientAmountMeasurement + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RecipeIngredient that = (RecipeIngredient) o;
+        return id == that.id && ingredientAmount == that.ingredientAmount && Objects.equals(recipe, that.recipe) && Objects.equals(ingredient, that.ingredient) && Objects.equals(ingredientAmountMeasurement, that.ingredientAmountMeasurement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, recipe, ingredient, ingredientAmount, ingredientAmountMeasurement);
     }
 }
