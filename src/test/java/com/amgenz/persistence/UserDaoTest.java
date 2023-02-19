@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * The type User dao test.
  */
 class UserDaoTest {
-    UserDao dao;
+    GenericDao dao;
 
     /**
      * Creating the dao.
@@ -24,7 +24,7 @@ class UserDaoTest {
         Database database = Database.getInstance();
         database.runSQL("cleandb.sql");
 
-        dao = new UserDao();
+        dao = new GenericDao(User.class);
     }
 
     /**
@@ -41,7 +41,7 @@ class UserDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        User retrieveUser = dao.getById(5);
+        User retrieveUser = (User) dao.getById(5);
         assertNotNull(retrieveUser);
         assertEquals("Ashley", retrieveUser.getFirstName());
     }
@@ -54,7 +54,7 @@ class UserDaoTest {
         User newUser = new User("Steve", "Flower", "stflow");
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = dao.getById(id);
+        User insertedUser = (User) dao.getById(id);
         assertEquals("Steve", insertedUser.getFirstName());
     }
 
@@ -69,7 +69,7 @@ class UserDaoTest {
 
     @Test
     void saveOrUpdateSuccess() {
-        User updateUser = dao.getById(1);
+        User updateUser = (User) dao.getById(1);
         updateUser.setEmail("halouis");
         dao.saveOrUpdate(updateUser);
         assertEquals("halouis", updateUser.getEmail());
