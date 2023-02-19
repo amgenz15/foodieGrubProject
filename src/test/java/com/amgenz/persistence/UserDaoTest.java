@@ -69,10 +69,12 @@ class UserDaoTest {
 
     @Test
     void saveOrUpdateSuccess() {
+        String newEmail = "halouis";
         User updateUser = (User) dao.getById(1);
-        updateUser.setEmail("halouis");
+        updateUser.setEmail(newEmail);
         dao.saveOrUpdate(updateUser);
-        assertEquals("halouis", updateUser.getEmail());
+        User retrievedUser = (User) dao.getById(3);
+        assertTrue(updateUser.equals(retrievedUser));
     }
 
     /**

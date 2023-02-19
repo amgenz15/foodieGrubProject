@@ -21,6 +21,8 @@ public class RecipeInstruction {
     @Column(name = "instruction")
     private String instruction;
 
+    @Column(name = "instruction_order")
+    private int instructionOrder;
     /**
      * Instantiates a new Recipe instruction.
      */
@@ -30,12 +32,14 @@ public class RecipeInstruction {
     /**
      * Instantiates a new Recipe instruction.
      *
-     * @param recipe      the recipe
-     * @param instruction the instruction
+     * @param recipe           the recipe
+     * @param instruction      the instruction
+     * @param instructionOrder the instruction order
      */
-    public RecipeInstruction(Recipe recipe, String instruction) {
+    public RecipeInstruction(Recipe recipe, String instruction, int instructionOrder) {
         this.recipe = recipe;
         this.instruction = instruction;
+        this.instructionOrder = instructionOrder;
     }
 
     /**
@@ -92,12 +96,31 @@ public class RecipeInstruction {
         this.instruction = instruction;
     }
 
+    /**
+     * Gets instruction order.
+     *
+     * @return the instruction order
+     */
+    public int getInstructionOrder() {
+        return instructionOrder;
+    }
+
+    /**
+     * Sets instruction order.
+     *
+     * @param instructionOrder the instruction order
+     */
+    public void setInstructionOrder(int instructionOrder) {
+        this.instructionOrder = instructionOrder;
+    }
+
     @Override
     public String toString() {
         return "RecipeInstruction{" +
                 "id=" + id +
                 ", recipe=" + recipe +
                 ", instruction='" + instruction + '\'' +
+                ", instructionOrder=" + instructionOrder +
                 '}';
     }
 }
