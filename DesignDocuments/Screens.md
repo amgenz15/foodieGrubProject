@@ -14,7 +14,7 @@
 
 ### Recipe Specs
 
-![Recipe Specs](wireframes/recipeSpecs.png)
+![Recipe Specs](wireframes/RecipeAboutPage.png)
 
 ### Sign In
 
