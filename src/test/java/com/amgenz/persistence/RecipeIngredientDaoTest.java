@@ -1,7 +1,6 @@
 package com.amgenz.persistence;
 
 import com.amgenz.entity.RecipeIngredient;
-import com.amgenz.entity.Recipe;
 import com.amgenz.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
