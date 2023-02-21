@@ -146,6 +146,11 @@ public class User {
         recipe.setUser(this);
     }
 
+    public void removeRecipe(Recipe recipe) {
+        recipes.remove(recipe);
+        recipe.setUser(null);
+    }
+
     @Override
     public String toString() {
         return "User{" +
