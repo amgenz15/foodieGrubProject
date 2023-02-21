@@ -1,6 +1,7 @@
 package com.amgenz.persistence;
 
 import com.amgenz.entity.RecipeIngredient;
+import com.amgenz.entity.Recipe;
 import com.amgenz.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,9 +31,9 @@ class RecipeIngredientDaoTest {
      * Verifies gets all recipe's ingredients success.
      */
     @Test
-    void getAllRecipesSuccess() {
+    void getAllRecipeIngredientsSuccess() {
         List<RecipeIngredient> recipes = dao.getAll();
-        assertEquals(3, recipes.size());
+        assertEquals(23, recipes.size());
     }
 
     /**
@@ -40,9 +41,9 @@ class RecipeIngredientDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        RecipeIngredient retrievedRecipe = (RecipeIngredient) dao.getById(1);
-        assertNotNull(retrievedRecipe);
-        assertEquals("Homemade Chicken Alfredo", retrievedRecipe.getRecipeName());
+        RecipeIngredient retrievedRecipeIngredient = (RecipeIngredient) dao.getById(7);
+        assertNotNull(retrievedRecipeIngredient);
+        assertEquals("Parmesan", retrievedRecipeIngredient.getIngredient());
     }
     /**
      * Verify successful insert of a recipe ingredient
@@ -50,11 +51,11 @@ class RecipeIngredientDaoTest {
     @Test
     void insertSuccess() {
 
-        RecipeIngredient newRecipe = new RecipeIngredient();
-        int id = dao.insert(newRecipe);
+        RecipeIngredient newRecipeIngredient = new RecipeIngredient(null, "Oregeno", 1.00, "cup");
+        int id = dao.insert(newRecipeIngredient);
         assertNotEquals(0,id);
-        RecipeIngredient insertedRecipe = (RecipeIngredient) dao.getById(id);
-        assertEquals(newRecipe, insertedRecipe);
+        RecipeIngredient insertedRecipeIngredient = (RecipeIngredient) dao.getById(id);
+        assertEquals(newRecipeIngredient, insertedRecipeIngredient);
     }
 
     /**
@@ -71,12 +72,12 @@ class RecipeIngredientDaoTest {
      */
     @Test
     void updateSuccess() {
-        int newServing = 4;
-        RecipeIngredient updateRecipe = (RecipeIngredient) dao.getById(1);
-        updateRecipe.setServing(newServing);
-        dao.saveOrUpdate(updateRecipe);
-        RecipeIngredient retrievedRecipe = (RecipeIngredient) dao.getById(1);
-        assertEquals(updateRecipe, retrievedRecipe);
+        int newIngredientAmount = 3;
+        RecipeIngredient updateRecipeIngredient = (RecipeIngredient) dao.getById(1);
+        updateRecipeIngredient.setIngredientAmount(newIngredientAmount);
+        dao.saveOrUpdate(updateRecipeIngredient);
+        RecipeIngredient retrievedRecipeIngredient = (RecipeIngredient) dao.getById(1);
+        assertEquals(updateRecipeIngredient, retrievedRecipeIngredient);
     }
 
     /**
@@ -84,9 +85,9 @@ class RecipeIngredientDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<RecipeIngredient> recipes = dao.getByPropertyEqual("type", "Breakfast");
+        List<RecipeIngredient> recipes = dao.getByPropertyEqual("ingredient", "Milk");
         assertEquals(1, recipes.size());
-        assertEquals(3, recipes.get(0).getId());
+        assertEquals(19, recipes.get(0).getId());
     }
 
     /**
@@ -94,7 +95,7 @@ class RecipeIngredientDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<RecipeIngredient> recipes = dao.getByPropertyLike("recipeName", "h");
-        assertEquals(2, recipes.size());
+        List<RecipeIngredient> recipes = dao.getByPropertyLike("ingredient", "s");
+        assertEquals(14, recipes.size());
     }
 }

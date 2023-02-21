@@ -49,6 +49,19 @@ public class Recipe {
     public Recipe() {
     }
 
+    /**
+     * Instantiates a new Recipe.
+     *
+     * @param recipeName     the recipe name
+     * @param user           the user
+     * @param calories       the calories
+     * @param protein        the protein
+     * @param carbohydrates  the carbohydrates
+     * @param fat            the fat
+     * @param totalTimeInMin the total time in min
+     * @param type           the type
+     * @param serving        the serving
+     */
     public Recipe(String recipeName, User user, int calories, int protein, int carbohydrates, int fat,
                   int totalTimeInMin, String type, int serving) {
         this.recipeName = recipeName;
@@ -240,6 +253,84 @@ public class Recipe {
      */
     public void setServing(int serving) {
         this.serving = serving;
+    }
+
+
+    /**
+     * Gets instructions.
+     *
+     * @return the instructions
+     */
+    public Set<RecipeInstruction> getInstructions() {
+        return instructions;
+    }
+
+    /**
+     * Sets instructions.
+     *
+     * @param instructions the instructions
+     */
+    public void setInstructions(Set<RecipeInstruction> instructions) {
+        this.instructions = instructions;
+    }
+
+    /**
+     * Add recipe instruction.
+     *
+     * @param recipeInstruction the recipe instruction
+     */
+    public void addRecipeInstruction(RecipeInstruction recipeInstruction) {
+        instructions.add(recipeInstruction);
+        recipeInstruction.setRecipe(this);
+    }
+
+    /**
+     * Remove recipe instruction.
+     *
+     * @param recipeInstruction the recipe instruction
+     */
+    public void removeRecipeInstruction(RecipeInstruction recipeInstruction) {
+        instructions.remove(recipeInstruction);
+        recipeInstruction.setRecipe(null);
+    }
+
+    /**
+     * Gets ingredients.
+     *
+     * @return the ingredients
+     */
+    public Set<RecipeIngredient> getIngredients() {
+        return ingredients;
+    }
+
+    /**
+     * Sets ingredients.
+     *
+     * @param ingredients the ingredients
+     */
+    public void setIngredients(Set<RecipeIngredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    /**
+     * Add recipe ingredient
+     *
+     * @param recipeIngredient the recipe ingredient
+     */
+    public void addRecipeIngredients(RecipeIngredient recipeIngredient) {
+        ingredients.add(recipeIngredient);
+        recipeIngredient.setRecipe(this);
+    }
+
+
+    /**
+     * Remove recipe ingredient.
+     *
+     * @param recipeIngredient the recipe
+     */
+    public void removeRecipeIngredient(RecipeIngredient recipeIngredient) {
+        ingredients.remove(recipeIngredient);
+        recipeIngredient.setRecipe(null);
     }
 
     @Override

@@ -146,6 +146,11 @@ public class User {
         recipe.setUser(this);
     }
 
+    /**
+     * Remove recipe.
+     *
+     * @param recipe the recipe
+     */
     public void removeRecipe(Recipe recipe) {
         recipes.remove(recipe);
         recipe.setUser(null);
