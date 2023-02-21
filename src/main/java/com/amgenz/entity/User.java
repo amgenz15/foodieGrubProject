@@ -118,13 +118,41 @@ public class User {
         this.email = email;
     }
 
+    /**
+     * Gets recipes.
+     *
+     * @return the recipes
+     */
+    public Set<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    /**
+     * Sets recipes.
+     *
+     * @param recipes the recipes
+     */
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
+    }
+
+    /**
+     * Add recipe.
+     *
+     * @param recipe the order
+     */
+    public void addRecipe(Recipe recipe) {
+        recipes.add(recipe);
+        recipe.setUser(this);
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", userName='" + email + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 

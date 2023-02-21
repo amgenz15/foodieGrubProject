@@ -14,5 +14,8 @@
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         <mapping class="com.amgenz.entity.User"/>
+        <mapping class="com.amgenz.entity.Recipe"/>
+        <mapping class="com.amgenz.entity.RecipeIngredient"/>
+        <mapping class="com.amgenz.entity.RecipeInstruction"/>
     </session-factory>
 </hibernate-configuration>

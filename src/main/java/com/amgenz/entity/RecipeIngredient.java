@@ -8,8 +8,8 @@ import java.util.Objects;
 /**
  * The type Recipe ingredients.
  */
-@Entity(name = "RecipeInstruction")
-@Table(name = "recipe_instruction")
+@Entity(name = "RecipeIngredient")
+@Table(name = "recipe_ingredient")
 public class RecipeIngredient {
 
     @Id

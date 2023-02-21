@@ -35,6 +35,8 @@ public class Recipe {
 
     private String type;
 
+    private int serving;
+
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<RecipeInstruction> instructions = new HashSet<>();
 
@@ -47,20 +49,8 @@ public class Recipe {
     public Recipe() {
     }
 
-    /**
-     * Instantiates a new Recipe.
-     *
-     * @param recipeName     the recipe name
-     * @param user           the user
-     * @param calories       the calories
-     * @param protein        the protein
-     * @param carbohydrates  the carbohydrates
-     * @param fat            the fat
-     * @param totalTimeInMin the total time in min
-     * @param type           the type
-     */
     public Recipe(String recipeName, User user, int calories, int protein, int carbohydrates, int fat,
-                  int totalTimeInMin, String type) {
+                  int totalTimeInMin, String type, int serving) {
         this.recipeName = recipeName;
         this.user = user;
         this.calories = calories;
@@ -69,6 +59,7 @@ public class Recipe {
         this.fat = fat;
         this.totalTimeInMin = totalTimeInMin;
         this.type = type;
+        this.serving = serving;
     }
 
     /**
@@ -233,6 +224,24 @@ public class Recipe {
         this.type = type;
     }
 
+    /**
+     * Gets serving.
+     *
+     * @return the serving
+     */
+    public int getServing() {
+        return serving;
+    }
+
+    /**
+     * Sets serving.
+     *
+     * @param serving the serving
+     */
+    public void setServing(int serving) {
+        this.serving = serving;
+    }
+
     @Override
     public String toString() {
         return "Recipe{" +
@@ -245,6 +254,9 @@ public class Recipe {
                 ", fat=" + fat +
                 ", totalTimeInMin=" + totalTimeInMin +
                 ", type='" + type + '\'' +
+                ", serving=" + serving +
+                ", instructions=" + instructions +
+                ", ingredients=" + ingredients +
                 '}';
     }
 
@@ -253,11 +265,11 @@ public class Recipe {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
-        return id == recipe.id && calories == recipe.calories && protein == recipe.protein && carbohydrates == recipe.carbohydrates && fat == recipe.fat && totalTimeInMin == recipe.totalTimeInMin && Objects.equals(recipeName, recipe.recipeName) && Objects.equals(user, recipe.user) && Objects.equals(type, recipe.type);
+        return id == recipe.id && calories == recipe.calories && protein == recipe.protein && carbohydrates == recipe.carbohydrates && fat == recipe.fat && totalTimeInMin == recipe.totalTimeInMin && serving == recipe.serving && Objects.equals(recipeName, recipe.recipeName) && Objects.equals(user, recipe.user) && Objects.equals(type, recipe.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, recipeName, user, calories, protein, carbohydrates, fat, totalTimeInMin, type);
+        return Objects.hash(id, recipeName, user, calories, protein, carbohydrates, fat, totalTimeInMin, type, serving);
     }
 }
