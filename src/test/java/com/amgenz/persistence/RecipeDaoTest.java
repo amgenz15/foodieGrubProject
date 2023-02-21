@@ -50,7 +50,7 @@ class RecipeDaoTest {
     @Test
     void insertSuccess() {
 
-        Recipe newRecipe = new Recipe("Garlic Butter Baked Salmon", 4, 448, 37,
+        Recipe newRecipe = new Recipe("Garlic Butter Baked Salmon", null, 448, 37,
                 13, 28, 30, "Dinner", 4);
         int id = dao.insert(newRecipe);
         assertNotEquals(0,id);
@@ -82,9 +82,9 @@ class RecipeDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<Recipe> recipes = dao.getByPropertyEqual("recipeName", "Homemade Chicken Alfredo");
+        List<Recipe> recipes = dao.getByPropertyEqual("type", "Dinner");
         assertEquals(1, recipes.size());
-        assertEquals(10, recipes.get(0).getId());
+        assertEquals(1, recipes.get(0).getId());
     }
 
     /**
@@ -92,7 +92,7 @@ class RecipeDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<Recipe> recipes = dao.getByPropertyLike("recipeName", "a");
+        List<Recipe> recipes = dao.getByPropertyLike("recipeName", "h");
         assertEquals(2, recipes.size());
     }
 }
