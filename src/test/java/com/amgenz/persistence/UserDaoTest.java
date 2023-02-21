@@ -2,9 +2,12 @@ package com.amgenz.persistence;
 
 
 import com.amgenz.entity.User;
+import com.amgenz.entity.Recipe;
 import com.amgenz.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,6 +60,28 @@ class UserDaoTest {
         User insertedUser = (User) dao.getById(id);
         assertEquals(newUser, insertedUser);
     }
+
+    /**
+     * Verify successful insert of a user with a recipe
+     */
+    @Test
+    void insertWithRecipeSuccess() {
+
+        User newUser = new User("Sandra", "Bullex", "sandbull");
+
+        Recipe recipe = new Recipe("Chicken and Sausage Gumbo", newUser, 1611, 50, 57, 131, 90, "Dinner", 6);
+
+        newUser.addRecipe(recipe);
+
+        int id = dao.insert(newUser);
+
+        assertNotEquals(0,id);
+        User insertedUser = (User) dao.getById(id);
+        assertEquals(newUser, insertedUser);
+        assertEquals(1, insertedUser.getRecipe().size());
+
+    }
+
 
     /**
      * Verify successful delete of user

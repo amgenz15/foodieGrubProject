@@ -123,7 +123,7 @@ public class User {
      *
      * @return the recipes
      */
-    public Set<Recipe> getRecipes() {
+    public Set<Recipe> getRecipe() {
         return recipes;
     }
 
@@ -132,7 +132,7 @@ public class User {
      *
      * @param recipes the recipes
      */
-    public void setRecipes(Set<Recipe> recipes) {
+    public void setRecipe(Set<Recipe> recipes) {
         this.recipes = recipes;
     }
 
