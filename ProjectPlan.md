@@ -5,7 +5,7 @@
 - [x] Create project structure in intellij and push
 - [x] Add link to list of indie projects in student repo.
 - [x] Complete Problem Statement
-- [ ] Determine possible Web Services or APIs to use
+- [X] Determine possible Web Services or APIs to use
 - [X] Add to time log
 - [X] Write project plan
 - [X] Create Wireframes
@@ -26,22 +26,22 @@
 
 ### Week 5 
 #### This week's focus is finishing creating the database 
-- [ ] Create a table to hold recipes
-- [ ] unit test dao
-- [ ] Create a table to hold instructions
-- [ ] unit test dao
-- [ ] Create a table to hold directions
-- [ ] unit test dao
+- [X] Create a table to hold recipes
+- [X] unit test dao
+- [X] Create a table to hold instructions
+- [X] unit test dao
+- [X] Create a table to hold directions
+- [X] unit test dao
 - [ ] add to time log 
 
 ### Week 6
 #### This week focus is testing the created database 
-- [ ] Create a table to hold recipes nutrition information
-- [ ] unit test dao 
-- [ ] Create a table to hold recipes quick need-to-knows
-- [ ] unit test dao
-- [ ] create a database persistence 
-- [ ] add JUNIT testing for database persistence
+- [X] Create a table to hold recipes nutrition information
+- [X] unit test dao 
+- [X] Create a table to hold recipes quick need-to-knows
+- [X] unit test dao
+- [X] create a database persistence 
+- [X] add JUNIT testing for database persistence
 - [ ] add to time log
 
 
