@@ -91,7 +91,7 @@ class RecipeInstructionDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<RecipeInstruction> recipes = dao.getByPropertyLike("instructionOrder", "2");
-        assertEquals(3, recipes.size());
+        List<RecipeInstruction> recipes = dao.getByPropertyLike("instruction", "Add");
+        assertEquals(4, recipes.size());
     }
 }
