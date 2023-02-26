@@ -27,16 +27,16 @@ class RecipeInstructionDaoTest {
     }
 
     /**
-     * Verifies gets all recipe's instructions success.
+     * Verifies gets all recipe's ingredients success.
      */
     @Test
-    void getAllRecipesInstructionSuccess() {
+    void getAllRecipesIngredientsSuccess() {
         List<RecipeInstruction> recipes = dao.getAll();
         assertEquals(14, recipes.size());
     }
 
     /**
-     * Verifies a recipe instruction is returned correctly based on id search.
+     * Verifies a recipe ingredients is returned correctly based on id search.
      */
     @Test
     void getByIdSuccess() {
@@ -45,7 +45,7 @@ class RecipeInstructionDaoTest {
         assertEquals("Sprinkle with parsley and enjoy!", retrievedRecipeInstruction.getInstruction());
     }
     /**
-     * Verify successful insert of a recipe instruction
+     * Verify successful insert of a recipe ingredients
      */
     @Test
     void insertSuccess() {
@@ -58,7 +58,7 @@ class RecipeInstructionDaoTest {
     }
 
     /**
-     * Verify successful delete of recipe instruction
+     * Verify successful delete of recipe ingredients
      */
     @Test
     void deleteSuccess() {
