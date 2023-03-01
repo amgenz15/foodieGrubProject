@@ -56,8 +56,8 @@
       <version>${log4j-version}</version>
     </dependency>
     <dependency>
-      <groupId>javax.servlet.jsp.jstl</groupId>
-      <artifactId>jstl-api</artifactId>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
       <version>${jstl-version}</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
