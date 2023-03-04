@@ -2,19 +2,26 @@
 
 ### Home Page 
 
-![Home Page](wireframes/aboutUs.png)
+![Home Page](wireframes/Homepage.png)
 
 ### Browse Page
 
-![Browse Recipes](wireframes/browse.png)
+![Browse Recipes](wireframes/Browse.png)
 
 ### About Us page 
 
-![About Us ](wireframes/aboutUs.png)
+![About Us ](wireframes/AboutUs.png)
 
 ### Recipe Specs
 
-![Recipe Specs](wireframes/RecipeAboutPage.png)
+![Recipe Specs](wireframes/RecipieSpecs.png)
+
+### Add/Edit Recipe
+![Add/Edit Recipe](wireframes/AddRecipe.png)
+* On the edit page all fields will be automatically filled in 
+
+### Delete Recipe Confirmation 
+![Delete Recipe](wireframes/DeleteRecipe.png)
 
 ### Sign In
 
