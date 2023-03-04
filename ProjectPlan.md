@@ -32,7 +32,7 @@
 - [X] unit test dao
 - [X] Create a table to hold directions
 - [X] unit test dao
-- [ ] add to time log 
+- [X] add to time log 
 
 ### Week 6
 #### This week focus is testing the created database 
@@ -42,16 +42,16 @@
 - [X] unit test dao
 - [X] create a database persistence 
 - [X] add JUNIT testing for database persistence
-- [ ] add to time log
+- [X] add to time log
 
 
 ### Week 7
 #### This week's focus is getting ready for check point 2 and begin to implement AWS
 
-- [ ] ensure log4J is fully implemented 
-- [ ] Triple check for check in #2
-- [ ] Begin implementing AWS to new user 
-- [ ] add to time log 
+- [X] ensure log4J is fully implemented 
+- [X] Triple check for check in #2
+- [X] Begin implementing AWS to new user 
+- [X] add to time log 
 
 ### Week 8
 #### This week's focus is to complete AWS implementation and authentication
