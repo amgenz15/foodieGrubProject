@@ -25,7 +25,7 @@ public class SearchRecipe extends HttpServlet {
 
         GenericDao dao = new GenericDao(Recipe.class);
         if (req.getParameter("submit").equals("search")) {
-            req.setAttribute("recipes", dao.getByPropertyLike("RecipeName", req.getParameter("searchRecipeName")));
+            req.setAttribute("recipes", dao.getByPropertyLikeString("RecipeName", req.getParameter("searchRecipeName")));
         } else {
             req.setAttribute("recipes", dao.getAll());
         }

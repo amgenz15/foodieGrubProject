@@ -1,8 +1,7 @@
 package com.amgenz.persistence;
 
 
-import com.amgenz.entity.User;
-import com.amgenz.entity.Recipe;
+import com.amgenz.entity.*;
 import com.amgenz.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class UserDaoTest {
     GenericDao dao;
+    GenericDao daoRecipe;
 
     /**
      * Creating the dao.
@@ -26,6 +26,7 @@ class UserDaoTest {
         database.runSQL("cleandb.sql");
 
         dao = new GenericDao(User.class);
+        daoRecipe = new GenericDao(Recipe.class);
     }
 
     /**
@@ -60,16 +61,17 @@ class UserDaoTest {
     }
 
     /**
-     * Verify successful insert of a user with a recipe
+     * Verify successful insert of a user with a recipe including instructions and directions
      */
     @Test
     void insertWithRecipeSuccess() {
 
         User newUser = new User("Sandra", "Bullex", "sandbull");
 
-        Recipe recipe = new Recipe("Chicken and Sausage Gumbo", newUser, 1611, 50, 57, 131, 90, "Dinner", 6);
+        Recipe newRecipe = new Recipe("Ham Roll Ups with Pickle", newUser, 134, 7, 2,
+                    11, 5, "Snack", 5);
 
-        newUser.addRecipe(recipe);
+        newUser.addRecipe(newRecipe);
 
         int id = dao.insert(newUser);
 
@@ -78,6 +80,17 @@ class UserDaoTest {
         assertEquals(newUser, insertedUser);
         assertEquals(1, insertedUser.getRecipe().size());
 
+    }
+
+    /**
+     * Verify successful delete of a user with a recipe including instructions and directions
+     */
+    @Test
+    void deleteWithRecipeSuccess() {
+        dao.delete(dao.getById(1));
+        Recipe userRecipe = (Recipe) daoRecipe.getById(1);
+        assertNull(userRecipe);
+        assertNull(dao.getById(1));
     }
 
 
@@ -105,7 +118,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = dao.getByPropertyEqual("lastName", "Smith");
+        List<User> users = dao.getByPropertyEqualString("lastName", "Smith");
         assertEquals(1, users.size());
         assertEquals(10, users.get(0).getId());
     }
@@ -115,7 +128,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<User> users = dao.getByPropertyLike("lastName", "w");
+        List<User> users = dao.getByPropertyLikeString("lastName", "w");
         assertEquals(4, users.size());
     }
 }
