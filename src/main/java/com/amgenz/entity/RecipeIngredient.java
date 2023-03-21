@@ -24,7 +24,7 @@ public class RecipeIngredient {
     private String ingredient;
 
     @Column(name = "ingredient_amount")
-    private double ingredientAmount;
+    private String ingredientAmount;
 
     @Column(name = "ingredient_amount_measurement")
     private String ingredientAmountMeasurement;
@@ -43,7 +43,7 @@ public class RecipeIngredient {
      * @param ingredientAmount            the ingredient amount
      * @param ingredientAmountMeasurement the ingredient amount measurement
      */
-    public RecipeIngredient(Recipe recipe, String ingredient, double ingredientAmount, String ingredientAmountMeasurement) {
+    public RecipeIngredient(Recipe recipe, String ingredient, String ingredientAmount, String ingredientAmountMeasurement) {
         this.recipe = recipe;
         this.ingredient = ingredient;
         this.ingredientAmount = ingredientAmount;
@@ -109,7 +109,7 @@ public class RecipeIngredient {
      *
      * @return the ingredient amount
      */
-    public double getIngredientAmount() {
+    public String getIngredientAmount() {
         return ingredientAmount;
     }
 
@@ -118,7 +118,7 @@ public class RecipeIngredient {
      *
      * @param ingredientAmount the ingredient amount
      */
-    public void setIngredientAmount(double ingredientAmount) {
+    public void setIngredientAmount(String ingredientAmount) {
         this.ingredientAmount = ingredientAmount;
     }
 

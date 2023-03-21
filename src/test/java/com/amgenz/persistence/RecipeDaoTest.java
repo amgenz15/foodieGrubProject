@@ -72,14 +72,14 @@ class RecipeDaoTest {
         Recipe newRecipe = new Recipe("Ham Roll Ups with Pickle", null, 134, 7, 2,
                 11, 5, "Snack", 5);
 
-        RecipeIngredient newRecipeIngredient1 = new RecipeIngredient(newRecipe, "Deli Ham", 10.00,
+        RecipeIngredient newRecipeIngredient1 = new RecipeIngredient(newRecipe, "Deli Ham", "10",
                 "slices");
 
-        RecipeIngredient newRecipeIngredient2 = new RecipeIngredient(newRecipe, "Cream Cheese", 8.00,
+        RecipeIngredient newRecipeIngredient2 = new RecipeIngredient(newRecipe, "Cream Cheese", "8",
                 "ounces");
 
         RecipeIngredient newRecipeIngredient3 = new RecipeIngredient(newRecipe, "Dill Pickle Spears",
-                10.00, null);
+                "10", null);
 
         RecipeInstruction newRecipeInstruction1 = new RecipeInstruction(newRecipe,
                 "Evenly spread cream cheese on to each ham slice.", 1);

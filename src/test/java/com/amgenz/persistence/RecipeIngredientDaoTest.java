@@ -50,7 +50,7 @@ class RecipeIngredientDaoTest {
     @Test
     void insertSuccess() {
 
-        RecipeIngredient newRecipeIngredient = new RecipeIngredient(null, "Oregeno", 1.00, "cup");
+        RecipeIngredient newRecipeIngredient = new RecipeIngredient(null, "Oregeno", "1", "cup");
         int id = dao.insert(newRecipeIngredient);
         assertNotEquals(0,id);
         RecipeIngredient insertedRecipeIngredient = (RecipeIngredient) dao.getById(id);
@@ -71,7 +71,7 @@ class RecipeIngredientDaoTest {
      */
     @Test
     void updateSuccess() {
-        int newIngredientAmount = 3;
+        String newIngredientAmount = "3";
         RecipeIngredient updateRecipeIngredient = (RecipeIngredient) dao.getById(1);
         updateRecipeIngredient.setIngredientAmount(newIngredientAmount);
         dao.saveOrUpdate(updateRecipeIngredient);
