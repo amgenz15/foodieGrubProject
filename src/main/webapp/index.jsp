@@ -4,7 +4,7 @@
 <h2>Foodie Grub Project</h2>
 
 <form action="searchRecipe">
-    <div>
+    <div class="bg-success">
         <label for="searchRecipeName">Search By Recipe Name:</label>
         <input type="text" id="searchRecipeName" name="searchRecipeName" >
 
