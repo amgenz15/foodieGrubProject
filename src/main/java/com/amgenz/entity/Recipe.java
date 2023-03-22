@@ -346,8 +346,6 @@ public class Recipe {
                 ", totalTimeInMin=" + totalTimeInMin +
                 ", type='" + type + '\'' +
                 ", serving=" + serving +
-                ", instructions=" + instructions +
-                ", ingredients=" + ingredients +
                 '}';
     }
 

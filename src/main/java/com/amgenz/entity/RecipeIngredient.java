@@ -146,7 +146,7 @@ public class RecipeIngredient {
                 "id=" + id +
                 ", recipe=" + recipe +
                 ", ingredient='" + ingredient + '\'' +
-                ", ingredientAmount=" + ingredientAmount +
+                ", ingredientAmount='" + ingredientAmount + '\'' +
                 ", ingredientAmountMeasurement='" + ingredientAmountMeasurement + '\'' +
                 '}';
     }
@@ -156,11 +156,11 @@ public class RecipeIngredient {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RecipeIngredient that = (RecipeIngredient) o;
-        return id == that.id && ingredientAmount == that.ingredientAmount && Objects.equals(recipe, that.recipe) && Objects.equals(ingredient, that.ingredient) && Objects.equals(ingredientAmountMeasurement, that.ingredientAmountMeasurement);
+        return id == that.id && Objects.equals(ingredient, that.ingredient) && Objects.equals(ingredientAmount, that.ingredientAmount) && Objects.equals(ingredientAmountMeasurement, that.ingredientAmountMeasurement);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, recipe, ingredient, ingredientAmount, ingredientAmountMeasurement);
+        return Objects.hash(id, ingredient, ingredientAmount, ingredientAmountMeasurement);
     }
 }
