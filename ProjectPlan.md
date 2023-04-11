@@ -1,22 +1,9 @@
 # Project Plan
 
-### Week 3
-- [x] Create project repository on GitHub
-- [x] Create project structure in intellij and push
-- [x] Add link to list of indie projects in student repo.
-- [x] Complete Problem Statement
-- [X] Determine possible Web Services or APIs to use
-- [X] Add to time log
-- [X] Write project plan
-- [X] Create Wireframes
-- [X] Triple-check for Checkpoint 1
-- [X] Crete a database 
-- [X] Make a table for users
-- [X] user dao to add user to db (java class)
 
 ### Week 4
 #### This week's focus is the User Sign Up Story
-- [ ] Select Template | Design CSS
+- [X] Select Template | Design CSS
 - [ ] new user jsp
 - [ ] add user controller (java class)
 - [ ] user entity (java class)
@@ -24,25 +11,7 @@
 - [ ] test round trip (front end to back end)
 - [ ] Add to time log
 
-### Week 5 
-#### This week's focus is finishing creating the database 
-- [X] Create a table to hold recipes
-- [X] unit test dao
-- [X] Create a table to hold instructions
-- [X] unit test dao
-- [X] Create a table to hold directions
-- [X] unit test dao
-- [X] add to time log 
 
-### Week 6
-#### This week focus is testing the created database 
-- [X] Create a table to hold recipes nutrition information
-- [X] unit test dao 
-- [X] Create a table to hold recipes quick need-to-knows
-- [X] unit test dao
-- [X] create a database persistence 
-- [X] add JUNIT testing for database persistence
-- [X] add to time log
 
 
 ### Week 7
