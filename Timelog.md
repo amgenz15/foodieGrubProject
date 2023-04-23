@@ -65,9 +65,9 @@ Total Time: 20 hours
 - Week 8 exercise 
 
 Total Time: 10 hours
+- Debugged Ubnuntu VM
 
 ### ---Spring Break---
-- Debugged Ubnuntu VM
 - Added in html design document
 - Continued to attempt to add cognito authentication to aws deployment 
 
