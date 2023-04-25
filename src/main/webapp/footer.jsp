@@ -1,9 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  User: amgenz
   Date: 3/22/23
   Time: 9:47 PM
-  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Footer Start -->
@@ -16,15 +15,15 @@
                         <h4 class="text-white mb-4">Get In Touch</h4>
                         <div class="d-flex mb-2">
                             <i class="bi bi-geo-alt text-white me-2"></i>
-                            <p class="text-white mb-0">123 Street, New York, USA</p>
+                            <p class="text-white mb-0">132 Boundary Rd Middleton, WI. 53562 </p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-envelope-open text-white me-2"></i>
-                            <p class="text-white mb-0">info@example.com</p>
+                            <p class="text-white mb-0">info@foodiegrub.com</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-telephone text-white me-2"></i>
-                            <p class="text-white mb-0">+012 345 67890</p>
+                            <p class="text-white mb-0">+1 505-399-6369</p>
                         </div>
                         <div class="d-flex mt-4">
                             <a class="btn btn-secondary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
@@ -36,38 +35,10 @@
                     <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
                         <h4 class="text-white mb-4">Quick Links</h4>
                         <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                            <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
+                            <a class="text-white mb-2" href="index.jsp"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
+                            <a class="text-white mb-2" href="about.jsp"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                        <h4 class="text-white mb-4">Popular Links</h4>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Our Services</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Meet The Team</a>
-                            <a class="text-white mb-2" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Latest Blog</a>
-                            <a class="text-white" href="#"><i class="bi bi-arrow-right text-white me-2"></i>Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-n5">
-                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-secondary p-5">
-                    <h4 class="text-white">Newsletter</h4>
-                    <h6 class="text-white">Subscribe Our Newsletter</h6>
-                    <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control border-white p-3" placeholder="Your Email">
-                            <button class="btn btn-primary">Sign Up</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -75,14 +46,14 @@
 </div>
 <div class="container-fluid bg-dark text-white py-4">
     <div class="container text-center">
-        <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by <a class="text-secondary fw-bold" href="https://htmlcodex.com">HTML Codex</a></p>
+        <p class="mb-0">&copy; <a class="text-secondary fw-bold" href="index.jsp">Foodie Grub</a>. All Rights Reserved. Designed by <a class="text-secondary fw-bold" href="https://htmlcodex.com">HTML Codex</a></p>
     </div>
 </div>
 <!-- Footer End -->
 
 
 <!-- Back to Top -->
-<a href="#" class="btn btn-secondary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+<a href="index.jsp" class="btn btn-secondary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
 <!-- JavaScript Libraries -->

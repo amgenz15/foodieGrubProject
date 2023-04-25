@@ -1,32 +1,37 @@
 <%--
   Created by IntelliJ IDEA.
-  User: student
+  User: amgenz
   Date: 3/22/23
   Time: 9:42 PM
-  To change this template use File | Settings | File Templates.
 --%>
+<%@include file="taglib.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container-fluid px-5 d-none d-lg-block">
     <div class="row gx-5 py-3 align-items-center">
         <div class="col-lg-3">
             <div class="d-flex align-items-center justify-content-start">
-                <i class="bi bi-phone-vibrate fs-1 text-primary me-2"></i>
-                <h2 class="mb-0">+012 345 6789</h2>
+                <img src="./images/foodieGrubLogoIcon.png">
             </div>
         </div>
         <div class="col-lg-6">
             <div class="d-flex align-items-center justify-content-center">
                 <a href="index.html" class="navbar-brand ms-lg-5">
-                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Farm</span>Fresh</h1>
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Foodie</span>Grub</h1>
                 </a>
             </div>
         </div>
         <div class="col-lg-3">
             <div class="d-flex align-items-center justify-content-end">
-                <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-primary btn-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-primary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                <img src="./images/userIcon.png">
+                <c:choose>
+                    <c:when test="${empty userName}">
+                        <a href = "logIn">Log In</a>
+                    </c:when>
+                    <c:otherwise>
+                        <h3>Welcome ${userName}</h3>
+                        <a href = "logout">Log Out</a>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>
