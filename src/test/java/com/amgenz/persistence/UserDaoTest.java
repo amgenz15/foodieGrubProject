@@ -53,7 +53,7 @@ class UserDaoTest {
     @Test
     void insertSuccess() {
 
-        User newUser = new User("Steve", "Flower", "stflow");
+        User newUser = new User("Steve", "Flower", "stflow", "Steve Flower", "stevflow@something.com");
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User) dao.getById(id);
@@ -66,7 +66,7 @@ class UserDaoTest {
     @Test
     void insertWithRecipeSuccess() {
 
-        User newUser = new User("Sandra", "Bullex", "sandbull");
+        User newUser = new User("Sandra", "Bullex", "sandbull", "Sandra Bullex", "sandBull@something.com");
 
         Recipe newRecipe = new Recipe("Ham Roll Ups with Pickle", newUser, 134, 7, 2,
                     11, 5, "Snack", 5);
@@ -105,9 +105,9 @@ class UserDaoTest {
 
     @Test
     void saveOrUpdateSuccess() {
-        String newEmail = "halouis";
+        String newUsername = "halouis";
         User updateUser = (User) dao.getById(1);
-        updateUser.setEmail(newEmail);
+        updateUser.setUsername(newUsername);
         dao.saveOrUpdate(updateUser);
         User retrievedUser = (User) dao.getById(1);
         assertEquals(updateUser, retrievedUser);

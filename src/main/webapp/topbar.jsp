@@ -10,7 +10,7 @@
     <div class="row gx-5 py-3 align-items-center">
         <div class="col-lg-3">
             <div class="d-flex align-items-center justify-content-start">
-                <img src="./images/foodieGrubLogoIcon.png">
+                <img src="./images/foodieGrubLogoIcon.png" id="logoIcon" class="img-thumbnail img-fluid" alt="Foodie Grub Icon">
             </div>
         </div>
         <div class="col-lg-6">
@@ -22,13 +22,13 @@
         </div>
         <div class="col-lg-3">
             <div class="d-flex align-items-center justify-content-end">
-                <img src="./images/userIcon.png">
+                <img src="./images/userIcon.png" id="userIcon" class="img-thumbnail img-fluid m-2" alt="User Icon">
                 <c:choose>
                     <c:when test="${empty userName}">
-                        <a href = "logIn">Log In</a>
+                        <a href = "./logIn" class="m-1">Log In</a>
                     </c:when>
                     <c:otherwise>
-                        <h3>Welcome ${userName}</h3>
+                        <p>Welcome ${userName}</p>
                         <a href = "logout">Log Out</a>
                     </c:otherwise>
                 </c:choose>

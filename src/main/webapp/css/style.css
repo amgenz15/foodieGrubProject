@@ -1,4 +1,17 @@
 /********** Template CSS **********/
+#searchForm {
+    margin: 10px;
+}
+#logoIcon {
+    width: 75px;
+    height: 75px;
+    margin: 0;
+}
+
+#userIcon {
+    width: 60px;
+    height: 60px;
+}
 :root {
     --primary: #34AD54;
     --secondary: #FF9933;

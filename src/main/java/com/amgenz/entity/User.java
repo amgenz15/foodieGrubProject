@@ -20,6 +20,10 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+    @Column(name = "username")
+    private String username;
+    @Column(name = "full_name")
+    private String fullName;
     @Column(name = "email")
     private String email;
 
@@ -33,16 +37,11 @@ public class User {
     public User() {
     }
 
-    /**
-     * Instantiates a new User.
-     *
-     * @param firstName the first name
-     * @param lastName  the last name
-     * @param email  the user email
-     */
-    public User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, String username, String fullName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.username = username;
+        this.fullName = fullName;
         this.email = email;
     }
 
@@ -101,6 +100,39 @@ public class User {
     }
 
     /**
+     * Gets user username.
+     *
+     * @return the user username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * Sets user username.
+     *
+     * @param username the user username
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    /**
+     * Gets user full name.
+     *
+     * @return the user full name
+     */
+    public String getFullName() {
+        return fullName;
+    }
+    /**
+     * Sets user full name.
+     *
+     * @param fullName the user username
+     */
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    /**
      * Gets user email.
      *
      * @return the user email
@@ -108,7 +140,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
     /**
      * Sets user email.
      *
@@ -162,7 +193,10 @@ public class User {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
+                ", recipes=" + recipes +
                 '}';
     }
 
@@ -171,11 +205,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email);
+        return id == user.id && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(username, user.username) && Objects.equals(fullName, user.fullName) && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, email);
+        return Objects.hash(id, firstName, lastName, username, fullName, email);
     }
 }

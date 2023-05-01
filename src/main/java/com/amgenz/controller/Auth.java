@@ -1,6 +1,8 @@
 package com.amgenz.controller;
 
 
+import com.amgenz.entity.User;
+import com.amgenz.persistence.GenericDao;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -35,6 +37,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.Base64;
+import java.util.*;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.stream.Collectors;
@@ -79,9 +82,12 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String authCode = req.getParameter("code");
         String userName = null;
+        int userId = 0;
 
         if (authCode == null) {
-            //TODO forward to an error page or back to the login
+            req.setAttribute("error", "*Authorization Failed* Please try again!");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
+            dispatcher.forward(req, resp);
         } else {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
@@ -90,12 +96,18 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 req.setAttribute("userName", userName);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
-                //TODO forward to an error page
+                req.setAttribute("error", "IOException, there was an error getting or validating the token.");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
+                dispatcher.forward(req, resp);
             } catch (InterruptedException e) {
                 logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
-                //TODO forward to an error page
+                req.setAttribute("error", "InterruptedException, there was an error getting token from Cognito oauth url");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
+                dispatcher.forward(req, resp);
             }
         }
+
+        userId = searchUsers(userName);
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
 
@@ -255,5 +267,25 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             logger.error("Error loading properties" + e.getMessage(), e);
         }
     }
+
+    /**
+     * Searches database for users, if not in database user is addec
+     * @param username
+     * @return user id
+     */
+    public int searchUsers(String username) {
+        GenericDao genericDao = new GenericDao(User.class);
+        int userId;
+
+        List<User> users = genericDao.getByPropertyEqualString("username", username);
+        if (users.isEmpty()) {
+            User newUser = new User();
+            userId = genericDao.insert(newUser);
+        } else {
+            userId = users.get(0).getId();
+        }
+        return userId;
+    }
+
 }
 

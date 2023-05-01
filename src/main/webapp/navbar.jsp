@@ -14,26 +14,24 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
+            <a href="index.html" class="nav-item nav-link">Home</a>
             <a href="about.html" class="nav-item nav-link">About</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Browse Recipes</a>
                 <div class="dropdown-menu m-0">
                     <a href=".html" class="dropdown-item">Breakfast</a>
-                    <a href=".html" class="dropdown-item">Lunch</a>
-                    <a href=".html" class="dropdown-item">Dinner</a>
+                    <a href=".html" class="dropdown-item">Brunch</a>
+                    <a href=".html" class="dropdown-item">Lunch/Dinner</a>
                     <a href=".html" class="dropdown-item">Snacks</a>
                     <a href=".html" class="dropdown-item">Drinks</a>
                 </div>
             </div>
-            <form action="searchRecipe">
-                <div>
-                    <label for="searchRecipeName">Search Recipes:</label>
-                    <input type="text" id="searchRecipeName" name="searchRecipeName" >
-
-                </div>
-                <button type="submit" name="submit" value="search">Search</button>
-            </form>
+            <div>
+                <form action="searchRecipe" method="get" class="form-inline" id="searchForm">
+                    <input type="text" placeholder="Search a recipe name...">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
         </div>
     </div>
 </nav>
