@@ -96,23 +96,7 @@ public class GenericDao<T> {
      * sample usage: getByPropertyEqualString("lastname", "Curry")
      * @return entity with exact match
      */
-    public List<T> getByPropertyEqualString(String propertyName, String value) {
-        Session session = getSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<T> query = builder.createQuery( type );
-        Root<T> root = query.from( type );
-        query.select(root).where(builder.equal(root.get(propertyName), value));
-        List<T> entity = session.createQuery(query).getResultList();
-        session.close();
-        return entity;
-    }
-
-    /**
-     * Get entity by int property (exact match)
-     * sample usage: getByPropertyEqualInt("recipeId", 1)
-     * @return entity with exact match
-     */
-    public List<T> getByPropertyEqualInt(String propertyName, int value) {
+    public List<T> getByPropertyEqual(String propertyName, String value) {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
@@ -128,7 +112,7 @@ public class GenericDao<T> {
      * sample usage: getByPropertyLike("lastname", "C")
      * @return entities with like matches
      */
-    public List<T> getByPropertyLikeString(String propertyName, String value) {
+    public List<T> getByPropertyLike(String propertyName, String value) {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );

@@ -276,7 +276,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         GenericDao genericDao = new GenericDao(User.class);
         int userId;
 
-        List<User> users = genericDao.getByPropertyEqualString("username", username);
+        List<User> users = genericDao.getByPropertyEqual("username", username);
         if (users.isEmpty()) {
             User newUser = new User(null, null, username, null, null);
             userId = genericDao.insert(newUser);

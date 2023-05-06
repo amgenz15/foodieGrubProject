@@ -17,6 +17,6 @@ along with adding their own favorite recipes to the website.
 
 ## Time Log
 
-#### [Time Log](TimeLog.md)
+#### [Time Log](Timelog.md)
 #### [Project Plan](ProjctPlan.md)
 #### [Screen Designs](DesignDocuments/Screens.md)

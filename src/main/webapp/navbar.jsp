@@ -28,8 +28,8 @@
             </div>
             <div>
                 <form action="searchRecipe" method="get" class="form-inline" id="searchForm">
-                    <input type="text" placeholder="Search a recipe name...">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <input type="text" id="searchRecipeName" name="searchRecipeName" placeholder="Search a recipe name...">
+                    <button type="submit" name="submit" value="search"><i class="fa fa-search"></i></button>
                 </form>
             </div>
         </div>

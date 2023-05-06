@@ -130,7 +130,7 @@ class RecipeDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<Recipe> recipes = dao.getByPropertyEqualString("type", "Breakfast");
+        List<Recipe> recipes = dao.getByPropertyEqual("type", "Breakfast");
         assertEquals(1, recipes.size());
         assertEquals(3, recipes.get(0).getId());
     }
@@ -140,7 +140,7 @@ class RecipeDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<Recipe> recipes = dao.getByPropertyLikeString("recipeName", "h");
+        List<Recipe> recipes = dao.getByPropertyLike("recipeName", "h");
         assertEquals(2, recipes.size());
     }
 }

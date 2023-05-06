@@ -98,4 +98,24 @@ Total Time: 50 hours
 - Team Project 
 - Indie Project 
 
+Total Hours: 50
+
+### Week 13
+- Team Project 
+- Indie Project
+
+Total Hours: 40
+
+### Week 14
+- Indie Project
+- Week 9 exercise
+- Week 10 exercise 
+- Professional Development Feedback 
+
+Total Hours: 
+
+### Week 15
+- Indie Project 
+- Self - Eval
+- Presentation
 Total Hours: 
