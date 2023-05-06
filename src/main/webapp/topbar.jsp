@@ -25,11 +25,11 @@
                 <img src="./images/userIcon.png" id="userIcon" class="img-thumbnail img-fluid m-2" alt="User Icon">
                 <c:choose>
                     <c:when test="${empty userName}">
-                        <a href = "./logIn" class="m-1">Log In</a>
+                        <a href="./logIn" class="m-1">Log In</a>
                     </c:when>
                     <c:otherwise>
-                        <p>Welcome ${userName}</p>
-                        <a href = "logout">Log Out</a>
+                        <p>Welcome ${userName}</p><br>
+                        <p><a href="./logOut">Log Out</a></p>
                     </c:otherwise>
                 </c:choose>
             </div>

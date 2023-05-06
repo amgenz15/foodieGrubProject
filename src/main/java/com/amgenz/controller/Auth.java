@@ -108,6 +108,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         }
 
         userId = searchUsers(userName);
+        req.setAttribute("userId", userId);
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
         dispatcher.forward(req, resp);
 
@@ -187,8 +188,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         logger.debug("here are all the available claims: " + jwt.getClaims());
 
-        // TODO decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
 
         return userName;
     }
@@ -269,7 +268,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     }
 
     /**
-     * Searches database for users, if not in database user is addec
+     * Searches database for users, if not in database user is added
      * @param username
      * @return user id
      */
@@ -279,7 +278,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         List<User> users = genericDao.getByPropertyEqualString("username", username);
         if (users.isEmpty()) {
-            User newUser = new User();
+            User newUser = new User(null, null, username, null, null);
             userId = genericDao.insert(newUser);
         } else {
             userId = users.get(0).getId();
@@ -288,4 +287,3 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     }
 
 }
-
