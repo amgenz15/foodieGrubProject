@@ -1,12 +1,13 @@
 <%@include file="taglib.jsp"%>
 <html>
 
-<%@include file="head.jsp"%>
+<c:import url="head.jsp"/>
 <body>
-<%@include file="topbar.jsp"%>
-<%@include file="navbar.jsp"%>
+<c:import url="topbar.jsp"/>
+<c:import url="navbar.jsp"/>
 
 
-<%@include file="footer.jsp"%>
+<c:import url="footer.jsp"/>
 </body>
 </html>
+

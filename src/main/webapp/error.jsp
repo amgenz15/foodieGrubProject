@@ -7,12 +7,13 @@
 --%>
 <%@include file="taglib.jsp"%>
 <html>
-<%@include file="head.jsp"%>
-<body>
-<%@include file="topbar.jsp"%>
-<%@include file="navbar.jsp"%>
 
-<h1>There was an error....</h1>
-<%@include file="footer.jsp"%>
+<c:import url="head.jsp"/>
+<body>
+<c:import url="topbar.jsp"/>
+<c:import url="navbar.jsp"/>
+
+<h1>There was an error...</h1>
+<c:import url="footer.jsp"/>
 </body>
 </html>

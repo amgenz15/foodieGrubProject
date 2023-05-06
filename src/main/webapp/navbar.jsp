@@ -15,15 +15,15 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
             <a href="index.html" class="nav-item nav-link">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
+            <a href="browseAll.html" class="nav-item nav-link">Browse All Recipes</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Browse Recipes</a>
                 <div class="dropdown-menu m-0">
-                    <a href=".html" class="dropdown-item">Breakfast</a>
-                    <a href=".html" class="dropdown-item">Brunch</a>
-                    <a href=".html" class="dropdown-item">Lunch/Dinner</a>
-                    <a href=".html" class="dropdown-item">Snacks</a>
-                    <a href=".html" class="dropdown-item">Drinks</a>
+                    <a href="breakfastRecipes.jsp" class="dropdown-item">Breakfast</a>
+                    <a href="brunchRecipes.jsp" class="dropdown-item">Brunch</a>
+                    <a href="lunchDinnerRecipes.jsp" class="dropdown-item">Lunch/Dinner</a>
+                    <a href="snackRecipes.jsp" class="dropdown-item">Snacks</a>
+                    <a href="drinkRecipes.jsp" class="dropdown-item">Drinks</a>
                 </div>
             </div>
             <div>
