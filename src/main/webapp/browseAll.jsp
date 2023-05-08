@@ -1,11 +1,11 @@
 <%@include file="taglib.jsp"%>
-<%@include file="head.jsp"%>
-<c:set var="title" value="Search Results"/>
-
 <html>
+
+<c:import url="head.jsp"/>
 <body>
 <c:import url="topbar.jsp"/>
 <c:import url="navbar.jsp"/>
+
 <div class="container-fluid">
     <h2>Search Results: </h2>
     <table id="myTable" class="display">
@@ -37,6 +37,7 @@
     </table>
 
 </div>
+
 <c:import url="footer.jsp"/>
 </body>
 </html>

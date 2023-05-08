@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: student
+  Date: 5/6/23
+  Time: 11:08 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@include file="taglib.jsp"%>
 <html>
 
@@ -22,4 +29,3 @@
 <c:import url="footer.jsp"/>
 </body>
 </html>
-

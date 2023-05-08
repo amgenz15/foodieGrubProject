@@ -15,17 +15,18 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
             <a href="index.jsp" class="nav-item nav-link">Home</a>
-            <a href="displayRecipe" class="nav-item nav-link">Browse All Recipes</a>
+            <a href="browseAll.jsp" class="nav-item nav-link">Browse All Recipes</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Browse Recipes</a>
                 <div class="dropdown-menu m-0">
-                    <a href="displayBreakfast" class="dropdown-item">Breakfast</a>
-                    <a href="displayBrunch" class="dropdown-item">Brunch</a>
-                    <a href="displayLunchDinner" class="dropdown-item">Lunch/Dinner</a>
-                    <a href="displaySnack" class="dropdown-item">Snacks</a>
-                    <a href="displayDrink" class="dropdown-item">Drinks</a>
+                    <a href="breakfastRecipes.jsp" class="dropdown-item">Breakfast</a>
+                    <a href="brunchRecipes.jsp" class="dropdown-item">Brunch</a>
+                    <a href="lunchDinnerRecipes.jsp" class="dropdown-item">Lunch/Dinner</a>
+                    <a href="snackRecipes.jsp" class="dropdown-item">Snacks</a>
+                    <a href="drinkRecipes.jsp" class="dropdown-item">Drinks</a>
                 </div>
             </div>
+            <a href="addRecipe.jsp" class="nav-item nav-link">Add a Recipe</a>
             <div>
                 <form action="searchRecipe" method="get" class="form-inline" id="searchForm">
                     <input type="text" id="searchRecipeName" name="searchRecipeName" placeholder="Search a recipe name...">
