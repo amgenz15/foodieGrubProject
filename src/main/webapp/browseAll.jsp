@@ -2,13 +2,17 @@
 <html>
 
 <c:import url="head.jsp"/>
-<body>
+<script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('#recipeTable').DataTable();
+    });
+</script>
+<body role="document">
 <c:import url="topbar.jsp"/>
 <c:import url="navbar.jsp"/>
 
 <div class="container-fluid">
-    <h2>Search Results: </h2>
-    <table id="myTable" class="display">
+    <table id="recipeTable" class="display">
         <thead>
         <th>Recipe Name:</th>
         <th>Calories:</th>
@@ -30,7 +34,11 @@
                 <td>${recipe.totalTimeInMin}</td>
                 <td>${recipe.type}</td>
                 <td>${recipe.serving}</td>
-                <td><button type="submit" name="submit" value="recipeDetails">View Details</button></td>
+                <form action="recipeDetails" name="recipe" mathod="GET">
+                    <input type="hidden" id="recipeId" name="recipeId" value="${recipe.id}">
+                    <button type="submit" name="submit" value="recipeDetails">View Details</button>
+                </form>
+
             </tr>
         </c:forEach>
         </tbody>

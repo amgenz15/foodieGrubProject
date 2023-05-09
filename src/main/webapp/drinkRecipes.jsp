@@ -1,8 +1,12 @@
 <%@include file="taglib.jsp"%>
-<%@include file="head.jsp"%>
-<c:set var="title" value="Search Results"/>
 
 <html>
+<%@include file="head.jsp"%>
+<script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('#recipeTable').DataTable();
+    });
+</script>
 <body>
 <c:import url="topbar.jsp"/>
 <c:import url="navbar.jsp"/>
@@ -30,7 +34,10 @@
                 <td>${recipe.totalTimeInMin}</td>
                 <td>${recipe.type}</td>
                 <td>${recipe.serving}</td>
-                <td><button type="submit" name="submit" value="recipeDetails">View Details</button></td>
+                <form action="recipeDetails" name="recipe" mathod="GET">
+                    <input type="hidden" id="recipeId" name="recipeId" value="${recipe.id}">
+                    <button type="submit" name="submit" value="recipeDetails">View Details</button>
+                </form>
             </tr>
         </c:forEach>
         </tbody>

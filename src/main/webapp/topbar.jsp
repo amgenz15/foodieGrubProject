@@ -28,7 +28,10 @@
                         <a href="./logIn" class="m-1">Log In</a>
                     </c:when>
                     <c:otherwise>
-                        <p><a href="userProfile.jsp">Welcome ${userName}</a></p><br>
+                        <form action="userDetails" name="user" mathod="GET">
+                            <input type="hidden" id="userId" name="userId" value="${userId}">
+                            <button type="submit" name="submit" value="userDetails">Welcome ${userName}</button>
+                        </form>
                         <p><a href="./logOut">Log Out</a></p>
                     </c:otherwise>
                 </c:choose>

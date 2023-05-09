@@ -9,7 +9,7 @@
 <div class="container-fluid bg-footer bg-primary text-white mt-5">
     <div class="container d-flex justify-content-center">
         <div class="row gx-5">
-                    <div class="col-lg-6 col-md-12 pt-5 mb-5">
+                    <div class="col-12 pt-5 mb-5">
                         <h4 class="text-white mb-4">Get In Touch</h4>
                         <div class="d-flex mb-2">
                             <i class="bi bi-geo-alt text-white me-2"></i>
@@ -30,14 +30,6 @@
                             <a class="btn btn-secondary btn-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 pt-0 pt-lg-5 mb-5">
-                        <h4 class="text-white mb-4">Quick Links</h4>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white mb-2" href="index.jsp"><i class="bi bi-arrow-right text-white me-2"></i>Home</a>
-                            <a class="text-white mb-2" href="about.jsp"><i class="bi bi-arrow-right text-white me-2"></i>About Us</a>
-                        </div>
-                    </div>
-
         </div>
     </div>
 </div>

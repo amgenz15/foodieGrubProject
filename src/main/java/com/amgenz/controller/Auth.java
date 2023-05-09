@@ -109,7 +109,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         userId = searchUsers(userName);
         req.setAttribute("userId", userId);
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("registerIndex.jsp");
         dispatcher.forward(req, resp);
 
     }

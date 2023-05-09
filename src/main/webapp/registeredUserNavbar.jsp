@@ -20,8 +20,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Browse Recipes</a>
                 <div class="dropdown-menu m-0">
                     <a href="breakfastRecipes.jsp" class="dropdown-item">Breakfast</a>
-                    <a href="brunchRecipes.jsp" class="dropdown-item">Brunch</a>
-                    <a href="lunchDinnerRecipes.jsp" class="dropdown-item">Lunch/Dinner</a>
+                    <a href="lunchRecipes.jsp" class="dropdown-item">Brunch</a>
+                    <a href="dinnerRecipes.jsp" class="dropdown-item">Lunch/Dinner</a>
                     <a href="snackRecipes.jsp" class="dropdown-item">Snacks</a>
                     <a href="drinkRecipes.jsp" class="dropdown-item">Drinks</a>
                 </div>
