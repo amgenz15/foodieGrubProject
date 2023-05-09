@@ -2,10 +2,6 @@
 
 <html>
 <c:import url="head.jsp"/>
-<script type="text/javascript" class="init">
-    $(document).ready( function () {
-        $('#recipeTable').DataTable();
-    });
 </script>
 <body>
 <c:import url="topbar.jsp"/>

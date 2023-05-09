@@ -51,8 +51,8 @@
 
                                 <select name="type" id="type">
                                     <option value="breakfast">Breakfast</option>
-                                    <option value="brunch">Brunch</option>
-                                    <option value="lunchDinner">Lunch/Dinner</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
                                     <option value="snack">Snack</option>
                                     <option value="drink">Drink</option>
                                 </select>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-12">
                                 <label for="directions" class="text-dark">Directions:</label><br>
-                                <textarea id="directions" name="directions" rows="6" cols="50" placeholder="Please use this format: 1. Direction here (new line)"></textarea>
+                                <textarea id="directions" name="directions" rows="10" cols="100" placeholder="Please put one direction on each line in this format: 1 Direction here (new line)"></textarea>
                             </div>
                             <div class="col-3 mx-auto text-center mb-5" >
                                 <button class="btn btn-secondary w-100 py-3" type="submit" name="submit" value="addRecipe">Add Recipe</button>
