@@ -15,22 +15,12 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav mx-auto py-0">
             <a href="index.jsp" class="nav-item nav-link">Home</a>
-            <a href="browseAll.jsp" class="nav-item nav-link">Browse All Recipes</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Browse Recipes</a>
-                <div class="dropdown-menu m-0">
-                    <a href="breakfastRecipes.jsp" class="dropdown-item">Breakfast</a>
-                    <a href="lunchRecipes.jsp" class="dropdown-item">Brunch</a>
-                    <a href="dinnerRecipes.jsp" class="dropdown-item">Lunch/Dinner</a>
-                    <a href="snackRecipes.jsp" class="dropdown-item">Snacks</a>
-                    <a href="drinkRecipes.jsp" class="dropdown-item">Drinks</a>
-                </div>
-            </div>
+            <a href="displayRecipes" class="nav-item nav-link">Browse All Recipes</a>
             <a href="addRecipe.jsp" class="nav-item nav-link">Add a Recipe</a>
             <div>
                 <form action="searchRecipe" method="get" class="form-inline" id="searchForm">
                     <input type="text" id="searchRecipeName" name="searchRecipeName" placeholder="Search a recipe name...">
-                    <button type="submit" name="submit" value="search"><i class="fa fa-search"></i></button>
+                    <button type="submit" name="submit" value="search">Search</button>
                 </form>
             </div>
         </div>

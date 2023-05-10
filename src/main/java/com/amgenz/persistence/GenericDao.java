@@ -1,5 +1,7 @@
 package com.amgenz.persistence;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -13,6 +15,7 @@ import java.util.List;
  * A generic dao
  */
 public class GenericDao<T> {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     private Class<T> type;
 
     /**
@@ -53,13 +56,14 @@ public class GenericDao<T> {
      * @return All the entities
      */
     public List<T> getAll() {
-
+        logger.error("In the getAll method in the dao.");
         Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
         Root<T> root = query.from( type );
         List<T> list = session.createQuery( query ).getResultList();
+        logger.error("After query was made.");
         session.close();
 
         return list;
@@ -97,12 +101,16 @@ public class GenericDao<T> {
      * @return entity with exact match
      */
     public List<T> getByPropertyEqual(String propertyName, String value) {
+        logger.error("In the getByPropertyEqual method in the Generic Dao.");
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
         Root<T> root = query.from( type );
+        logger.error("Before the query.");
         query.select(root).where(builder.equal(root.get(propertyName), value));
+        logger.error("After the query.");
         List<T> entity = session.createQuery(query).getResultList();
+        //logger.error("Here is the found entity: " + entity);
         session.close();
         return entity;
     }

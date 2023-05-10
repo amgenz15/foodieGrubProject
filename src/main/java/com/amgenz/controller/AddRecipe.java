@@ -24,7 +24,7 @@ import java.util.Map;
  * A simple servlet to display all recipes.
  * @author amgenz
  */
-
+/**
 @WebServlet(
         urlPatterns = {"/addRecipe"}
 )
@@ -95,4 +95,4 @@ public class AddRecipe extends HttpServlet {
 
         }
     }
-}
+}*/
