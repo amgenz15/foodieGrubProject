@@ -18,6 +18,7 @@
         <th>Total Time:</th>
         <th>Type:</th>
         <th>Serving:</th>
+        <th></th>
         </thead>
         <tbody>
         <c:forEach var="recipe" items="${recipes}">
@@ -30,10 +31,12 @@
                 <td>${recipe.totalTimeInMin}</td>
                 <td>${recipe.type}</td>
                 <td>${recipe.serving}</td>
-                <form action="recipeDetails" name="recipe" mathod="GET">
-                    <input type="hidden" id="recipeId" name="recipeId" value="${recipe.id}">
-                    <button type="submit" name="submit" value="recipeDetails">View Details</button>
-                </form>
+                <td>
+                    <form action="recipeDetails" name="recipe" mathod="GET">
+                        <input type="hidden" id="recipeId" name="recipeId" value="${recipe.id}">
+                        <button type="submit" name="submit" value="recipeDetails">View Details</button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

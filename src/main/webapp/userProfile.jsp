@@ -6,11 +6,11 @@
 <c:import url="topbar.jsp"/>
 <c:import url="registeredUserNavbar.jsp"/>
 
-<c:forEach var="user" items="${userToDisplay}">
+
+<div>
     <div>
         <div>
-            <div>
-                <h3>${user.username} Profile!</h3>
+            <h3>Welcome ${user.username}! Here is your profile!</h3>
             </div>
             <div>
                 <p>First Name: ${user.firstName}</p>
@@ -19,14 +19,14 @@
                 <p>Email: ${user.email}</p>
             </div>
             <div>
-                <form action="user" name="user" mathod="GET">
-                    <input type="hidden" id="userId" name="userId" value="${userId}">
+                <form action="editUser" name="user" method="GET">
+                    <input type="hidden" id="userId" name="userId" value="${user.id}">
                     <button type="submit" name="submit" value="editUser">Edit Profile</button>
                 </form>
             </div>
-        </div>
     </div>
-</c:forEach>
+</div>
+
 
 
 <c:import url="footer.jsp"/>

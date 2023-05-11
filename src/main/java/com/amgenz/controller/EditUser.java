@@ -30,11 +30,11 @@ public class EditUser extends HttpServlet {
         if (req.getParameter("submit").equals("editUser")) {
             userId = Integer.parseInt(req.getParameter("userId"));
             User user = (User) userDao.getById(userId);
-
-            req.setAttribute("firstname", user);
-            req.setAttribute("lastName", user);
-            req.setAttribute("fullName", user);
-            req.setAttribute("email", user);
+            req.setAttribute("userId", user.getId());
+            req.setAttribute("firstname", user.getFirstName());
+            req.setAttribute("lastName", user.getLastName());
+            req.setAttribute("fullName", user.getFullName());
+            req.setAttribute("email", user.getEmail());
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/editUser.jsp");
         dispatcher.forward(req, resp);
@@ -43,7 +43,7 @@ public class EditUser extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GenericDao userDao = new GenericDao(User.class);
 
-        int id = Integer.parseInt(req.getParameter("recipeId"));
+        int id = Integer.parseInt(req.getParameter("userId"));
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
         String fullName = req.getParameter("fullName");

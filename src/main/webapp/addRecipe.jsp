@@ -18,9 +18,9 @@
             <h1 class="display-5">Add a custom recipe!</h1>
         </div>
         <div class="row g-0">
-            <div class="col-lg-7 mx-auto text-center mb-5">
-                <div class="bg-primary h-100 p-5 mx-auto text-center mb-5">
-                    <form action="addRecipe" method="get" class="form-inline" id="addForm">
+            <div class="col-lg-12 mx-auto text-center mb-5">
+                <div class="bg-primary  p-5 mx-auto text-center mb-5">
+                    <form action="addRecipe" method="post" class="form-inline" id="addForm">
                         <div class="row g-3">
                             <div class="col-6">
                                 <label for="recipeName" class="text-dark">Recipe Name:</label>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-12">
                                 <label for="directions" class="text-dark">Directions:</label><br>
-                                <textarea id="directions" name="directions" rows="10" cols="100" placeholder="Please put one direction on each line in this format: 1 Direction here (new line)"></textarea>
+                                <textarea id="directions" name="directions" rows="10" cols="125" placeholder="Please put one direction on each line in this format: 1 Direction here (new line)"></textarea>
                             </div>
                             <div class="col-3 mx-auto text-center mb-5" >
                                 <button class="btn btn-secondary w-100 py-3" type="submit" name="submit" value="addRecipe">Add Recipe</button>

@@ -4,7 +4,7 @@
 <c:import url="head.jsp"/>
 <body>
 <c:import url="topbar.jsp"/>
-<c:import url="registeredUserNavbar.jsp"/>
+<c:import url="navbar.jsp"/>
 
 <div>
     <h1>Welcome to Foodie Grub!</h1>

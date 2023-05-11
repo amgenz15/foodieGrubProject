@@ -31,7 +31,7 @@
                         <form action="userDetails" name="user" mathod="GET">
                             <input type="hidden" id="userId" name="userId" value="${userId}">
                             <button type="submit" name="submit" value="userDetails">Welcome ${userName}</button>
-                        </form>
+                        </form><br>
                         <p><a href="./logOut">Log Out</a></p>
                     </c:otherwise>
                 </c:choose>

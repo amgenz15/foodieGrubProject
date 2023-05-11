@@ -16,35 +16,28 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 /**
- * A simple servlet to delete a recipe.
+ * A simple servlet to display recipe details.
  * @author amgenz
  */
 
 @WebServlet(
-        urlPatterns = {"/deleteRecipe"}
+        urlPatterns = {"/recipeDetails"}
 )
 
-public class DeleteRecipe extends HttpServlet {
+public class RecipeDetails extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.error("In the doGet to delete a recipe.");
+        logger.error("In the doGet to display recipe details.");
         GenericDao recipeDao = new GenericDao(Recipe.class);
 
-        if (req.getParameter("submit").equals("deleteRecipe")) {
+        if (req.getParameter("submit").equals("recipeDetails")) {
             logger.error("In the if statement where recipe details button was pushed.");
             int recipeId = Integer.parseInt(req.getParameter("recipeId"));
-            recipeDao.delete(recipeId);
-            Recipe recipe = (Recipe) recipeDao.getById(recipeId);
-            if(recipe == null) {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/confirmationDelete.jsp");
-                dispatcher.forward(req, resp);
-            } else {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
-                dispatcher.forward(req, resp);
-            }
+            req.setAttribute("recipe", recipeDao.getById(recipeId));
         }
-
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/recipeDetails.jsp");
+        dispatcher.forward(req, resp);
     }
 }

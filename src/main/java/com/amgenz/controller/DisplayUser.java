@@ -31,7 +31,7 @@ public class DisplayUser extends HttpServlet {
             userId = Integer.parseInt(req.getParameter("userId"));
             User userToDisplay = (User) userDao.getById(userId);
 
-            req.setAttribute("userToDisplay", userToDisplay);
+            req.setAttribute("user", userToDisplay);
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/userProfile.jsp");
         dispatcher.forward(req, resp);
