@@ -11,7 +11,7 @@
 <c:import url="head.jsp"/>
 <body>
 <c:import url="topbar.jsp"/>
-<c:import url="navbar.jsp"/>
+<c:import url="registeredUserNavbar.jsp"/>
 <div class="container-fluid py-5">
     <div class="container">
         <div class="mx-auto text-center mb-5" style="max-width: 500px;">
@@ -60,6 +60,10 @@
                             <div class="col-3">
                                 <label for="serving" class="text-dark">Serving:</label>
                                 <input type="number" id="serving" class="form-control bg-light border-0 px-4" name="serving" placeholder="0" style="height: 55px;">
+                            </div>
+                            <div class="col-3">
+                                <label for="userName" class="text-dark">Username:</label>
+                                <input type="text" id="userName" class="form-control bg-light border-0 px-4" name="userName" placeholder="0" style="height: 55px;">
                             </div>
                             <div class="col-12">
                                 <label for="ingredients" class="text-dark">Ingredients:</label><br>

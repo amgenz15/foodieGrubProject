@@ -31,19 +31,14 @@ import java.util.Map;
 
 public class AddRecipe extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
-    private static RecipeParser parser = new RecipeParser();
-    private static Map<String, List<String>> ingredientsToAdd;
-    private static Map<String, List<String>> directionsToAdd;
-    private static String userName;
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
 
         if(req.getParameter("submit").equals("addRecipe")) {
             String recipeName = req.getParameter("recipeName");
-            userName = (String)session.getAttribute("userName");
+            String userName = req.getParameter("userName");
             int calories = Integer.parseInt(req.getParameter("calories"));
             int protein = Integer.parseInt(req.getParameter("protein"));
             int carbohydrates = Integer.parseInt(req.getParameter("carbohydrates"));
@@ -51,10 +46,10 @@ public class AddRecipe extends HttpServlet {
             int totalTime = Integer.parseInt(req.getParameter("totalTime"));
             String type = req.getParameter("type");
             int serving = Integer.parseInt(req.getParameter("serving"));
-            ingredientsToAdd = parser.parseIngredients(req.getParameter("ingredients"));
-            directionsToAdd = parser.parseDirections(req.getParameter("directions"));
+            String ingredientsToAdd = req.getParameter("ingredients");
+            String directionsToAdd = req.getParameter("directions");
 
-            addRecipe(recipeName, userName, calories, protein, carbohydrates, fat, totalTime, type, serving);
+            addRecipe(recipeName, userName, calories, protein, carbohydrates, fat, totalTime, type, serving, ingredientsToAdd, directionsToAdd);
 
             RequestDispatcher dispatcher = req.getRequestDispatcher("/addConfirmation.jsp");
             dispatcher.forward(req, resp);
@@ -63,36 +58,26 @@ public class AddRecipe extends HttpServlet {
     }
 
     public static void addRecipe(String recipeName, String userName, int calories, int protein, int carbohydrates, int fat,
-                                 int totalTime, String type, int serving) {
+                                 int totalTime, String type, int serving, String ingredients, String directions) {
         GenericDao userDao = new GenericDao(User.class);
         GenericDao recipeDao = new GenericDao(Recipe.class);
         GenericDao ingredientDao = new GenericDao(RecipeIngredient.class);
         GenericDao directionDao = new GenericDao(RecipeInstruction.class);
 
-        User  user = (User) userDao.getByPropertyEqual("userName", userName);
+        List<User>  users = userDao.getByPropertyEqual("username", userName);
+        User user = users.get(0);
 
         Recipe newRecipe = new Recipe(recipeName, user, calories, protein, carbohydrates, fat, totalTime, type, serving);
         recipeDao.insert(newRecipe);
 
-        for (Map.Entry<String, List<String>> item : ingredientsToAdd.entrySet()) {
-            List<String> values = item.getValue();
-            String amount =  values.get(0);
-            String measurement = values.get(1);
-            String ingredient = values.get(2);
+        RecipeIngredient newRecipeIngredient = new RecipeIngredient(newRecipe, ingredients, null, null);
+        ingredientDao.insert(newRecipeIngredient);
 
-            RecipeIngredient newRecipeIngredient = new RecipeIngredient(newRecipe, ingredient, amount, measurement);
-            ingredientDao.insert(newRecipeIngredient);
 
-        }
 
-        for (Map.Entry<String, List<String>> item : directionsToAdd.entrySet()) {
-            List<String> values = item.getValue();
-            int order =  Integer.parseInt(values.get(0));
-            String direction = values.get(1);
+        RecipeInstruction newRecipeInstruction = new RecipeInstruction(newRecipe, directions, 1);
+        directionDao.insert(newRecipeInstruction);
 
-            RecipeInstruction newRecipeInstruction = new RecipeInstruction(newRecipe, direction, order);
-            ingredientDao.insert(newRecipeInstruction);
 
-        }
     }
 }

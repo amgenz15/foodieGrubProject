@@ -11,7 +11,7 @@
 <c:import url="head.jsp"/>
 <body>
 <c:import url="topbar.jsp"/>
-<c:import url="navbar.jsp"/>
+<c:import url="registeredUserNavbar.jsp"/>
 <div class="container-fluid py-5">
         <div class="row g-0">
             <div class="col-lg-7">

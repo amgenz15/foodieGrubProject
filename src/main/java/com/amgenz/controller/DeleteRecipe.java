@@ -35,15 +35,11 @@ public class DeleteRecipe extends HttpServlet {
         if (req.getParameter("submit").equals("deleteRecipe")) {
             logger.error("In the if statement where recipe details button was pushed.");
             int recipeId = Integer.parseInt(req.getParameter("recipeId"));
-            recipeDao.delete(recipeId);
             Recipe recipe = (Recipe) recipeDao.getById(recipeId);
-            if(recipe == null) {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/confirmationDelete.jsp");
-                dispatcher.forward(req, resp);
-            } else {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
-                dispatcher.forward(req, resp);
-            }
+            recipeDao.delete(recipe);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/confirmationDelete.jsp");
+            dispatcher.forward(req, resp);
+
         }
 
     }

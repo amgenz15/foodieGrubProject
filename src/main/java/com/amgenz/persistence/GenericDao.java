@@ -86,10 +86,12 @@ public class GenericDao<T> {
      * @param entity  entity to be inserted or updated
      */
     public int insert(T entity) {
+        logger.error("in the insert method");
         int id;
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         id = (int)session.save(entity);
+        logger.error("After query was made inserted: ");
         transaction.commit();
         session.close();
         return id;
@@ -110,9 +112,26 @@ public class GenericDao<T> {
         query.select(root).where(builder.equal(root.get(propertyName), value));
         logger.error("After the query.");
         List<T> entity = session.createQuery(query).getResultList();
-        //logger.error("Here is the found entity: " + entity);
         session.close();
         return entity;
+    }
+
+    /**
+     * Get entity by string property (exact match)
+     * sample usage: getByPropertyEqualString("lastname", "Curry")
+     * @return entity with exact match
+     */
+    public List<T> getByPropertyEqualEntity(String propertyName, T entity) {
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery( type );
+        Root<T> root = query.from( type );
+        logger.error("Before the query.");
+        query.select(root).where(builder.equal(root.get(propertyName), entity));
+        logger.error("After the query.");
+        List<T> entitys = session.createQuery(query).getResultList();
+        session.close();
+        return entitys;
     }
 
     /**
