@@ -35,6 +35,7 @@ public class GenericDao<T> {
     public <T>T getById(int id) {
         Session session = getSession();
         T entity = (T)session.get(type, id);
+        logger.info("Have gotten the entity by id in the dao.");
         session.close();
         return entity;
     }
@@ -47,6 +48,7 @@ public class GenericDao<T> {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         session.delete(entity);
+        logger.info("Entity has been deleted. Inside the delete function in the dao.");
         transaction.commit();
         session.close();
     }
@@ -56,14 +58,14 @@ public class GenericDao<T> {
      * @return All the entities
      */
     public List<T> getAll() {
-        logger.error("In the getAll method in the dao.");
+        logger.info("In the getAll method in the dao.");
         Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
         Root<T> root = query.from( type );
         List<T> list = session.createQuery( query ).getResultList();
-        logger.error("After query was made.");
+        logger.info("After query was made to get all.");
         session.close();
 
         return list;
@@ -77,6 +79,7 @@ public class GenericDao<T> {
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         session.saveOrUpdate(entity);
+        logger.info("Entity has been updated in the dao");
         transaction.commit();
         session.close();
     }
@@ -86,12 +89,12 @@ public class GenericDao<T> {
      * @param entity  entity to be inserted or updated
      */
     public int insert(T entity) {
-        logger.error("in the insert method");
+        logger.info("in the insert method");
         int id;
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
         id = (int)session.save(entity);
-        logger.error("After query was made inserted: ");
+        logger.info("After query was made inserted: ");
         transaction.commit();
         session.close();
         return id;
@@ -103,14 +106,14 @@ public class GenericDao<T> {
      * @return entity with exact match
      */
     public List<T> getByPropertyEqual(String propertyName, String value) {
-        logger.error("In the getByPropertyEqual method in the Generic Dao.");
+        logger.info("In the getByPropertyEqual method in the Generic Dao.");
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
         Root<T> root = query.from( type );
-        logger.error("Before the query.");
+        logger.info("Before the query in the getByPropertyEqual method.");
         query.select(root).where(builder.equal(root.get(propertyName), value));
-        logger.error("After the query.");
+        logger.info("After the query in the getByPropertyEqual method.");
         List<T> entity = session.createQuery(query).getResultList();
         session.close();
         return entity;
@@ -126,9 +129,9 @@ public class GenericDao<T> {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
         Root<T> root = query.from( type );
-        logger.error("Before the query.");
+        logger.info("Before the query in the getByPropertyEqualEntity.");
         query.select(root).where(builder.equal(root.get(propertyName), entity));
-        logger.error("After the query.");
+        logger.info("After the query in the getByPropertyEqualEntity.");
         List<T> entitys = session.createQuery(query).getResultList();
         session.close();
         return entitys;
@@ -147,6 +150,7 @@ public class GenericDao<T> {
         Expression<String> propertyPath = root.get(propertyName);
         query.where(builder.like(propertyPath, "%" + value + "%"));
         List<T> entity = session.createQuery( query ).getResultList();
+        logger.info("Entity has gotten property by like value in the dao");
         session.close();
         return entity;
     }

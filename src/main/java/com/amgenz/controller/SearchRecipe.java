@@ -14,7 +14,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 /**
- * A simple servlet to search for recipies.
+ * A simple servlet to search for recipes.
  * @author amgenz
  */
 
@@ -27,12 +27,12 @@ public class SearchRecipe extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.error("In the doGet to search recipes.");
+        logger.info("In the doGet to search recipes.");
         GenericDao dao = new GenericDao(Recipe.class);
         if (req.getParameter("submit").equals("search")) {
-            logger.error("In the if statement where search button was pushed.");
+            logger.info("In the if statement where search button was pushed.");
             req.setAttribute("recipes", dao.getByPropertyLike("recipeName", req.getParameter("searchRecipeName")));
-            logger.error("Here is the found recipe:");
+            logger.info("Here is the found recipe:");
 
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");

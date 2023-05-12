@@ -2,6 +2,9 @@ package com.amgenz.controller;
 
 import com.amgenz.entity.User;
 import com.amgenz.persistence.GenericDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * A simple servlet to display all recipes.
+ * A simple servlet to edit a user.
  * @author amgenz
  */
 
@@ -21,6 +24,7 @@ import java.util.List;
 )
 
 public class EditUser extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -36,6 +40,7 @@ public class EditUser extends HttpServlet {
             req.setAttribute("fullName", user.getFullName());
             req.setAttribute("email", user.getEmail());
         }
+        logger.info("Grabbed all of the user attributes to automatically display in edit form.");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/editUser.jsp");
         dispatcher.forward(req, resp);
     }
@@ -57,7 +62,7 @@ public class EditUser extends HttpServlet {
         userToUpdate.setEmail(email);
 
         userDao.saveOrUpdate(userToUpdate);
-
+        logger.info("User had been updated in the database.");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/editConfirmation.jsp");
         dispatcher.forward(req, resp);
     }

@@ -29,13 +29,14 @@ public class RecipeDetails extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        logger.error("In the doGet to display recipe details.");
+        logger.info("In the doGet to display recipe details.");
         GenericDao recipeDao = new GenericDao(Recipe.class);
 
         if (req.getParameter("submit").equals("recipeDetails")) {
-            logger.error("In the if statement where recipe details button was pushed.");
+            logger.info("In the if statement where recipe details button was pushed.");
             int recipeId = Integer.parseInt(req.getParameter("recipeId"));
             req.setAttribute("recipe", recipeDao.getById(recipeId));
+            logger.info("Recipe details have been grabbed from the database.");
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("/recipeDetails.jsp");
         dispatcher.forward(req, resp);

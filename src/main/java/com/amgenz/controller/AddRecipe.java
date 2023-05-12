@@ -5,7 +5,6 @@ import com.amgenz.entity.RecipeIngredient;
 import com.amgenz.entity.RecipeInstruction;
 import com.amgenz.entity.User;
 import com.amgenz.persistence.GenericDao;
-import com.amgenz.persistence.RecipeParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,13 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 /**
- * A simple servlet to display all recipes.
+ * A simple servlet to add a recipe to the database.
  * @author amgenz
  */
 
@@ -50,7 +47,7 @@ public class AddRecipe extends HttpServlet {
             String directionsToAdd = req.getParameter("directions");
 
             addRecipe(recipeName, userName, calories, protein, carbohydrates, fat, totalTime, type, serving, ingredientsToAdd, directionsToAdd);
-
+            logger.info("Added the new recipe to the database");
             RequestDispatcher dispatcher = req.getRequestDispatcher("/addConfirmation.jsp");
             dispatcher.forward(req, resp);
         }

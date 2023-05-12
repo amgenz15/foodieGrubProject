@@ -26,10 +26,10 @@ public class DisplayAllRecipes extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        logger.error("In the doGet to display all recipes.");
+        logger.info("In the doGet to display all recipes.");
         GenericDao recipeDao = new GenericDao(Recipe.class);
         req.setAttribute("recipes", recipeDao.getAll());
-        logger.error("After attribute is set in the display all.");
+        logger.info("All recipes have been grabbed from the database.");
         RequestDispatcher dispatcher = req.getRequestDispatcher("/browseAll.jsp");
         dispatcher.forward(req, resp);
     }

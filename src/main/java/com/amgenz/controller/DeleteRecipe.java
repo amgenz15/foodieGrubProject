@@ -33,10 +33,11 @@ public class DeleteRecipe extends HttpServlet {
         GenericDao recipeDao = new GenericDao(Recipe.class);
 
         if (req.getParameter("submit").equals("deleteRecipe")) {
-            logger.error("In the if statement where recipe details button was pushed.");
+            logger.info("In the if statement where recipe details button was pushed.");
             int recipeId = Integer.parseInt(req.getParameter("recipeId"));
             Recipe recipe = (Recipe) recipeDao.getById(recipeId);
             recipeDao.delete(recipe);
+            logger.info("Recipe had been deleted.");
             RequestDispatcher dispatcher = req.getRequestDispatcher("/confirmationDelete.jsp");
             dispatcher.forward(req, resp);
 
